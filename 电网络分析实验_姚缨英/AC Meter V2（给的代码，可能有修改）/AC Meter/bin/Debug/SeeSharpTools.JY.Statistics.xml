@@ -1,0 +1,184 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SeeSharpTools.JY.Statistics</name>
+    </assembly>
+    <members>
+        <member name="T:SeeSharpTools.JY.Statistics.Engine">
+            <summary>
+            Global variable for the library
+            </summary>
+        </member>
+        <member name="F:SeeSharpTools.JY.Statistics.Engine.Provider">
+            <summary>
+            Select the calculating engine
+            </summary>
+        </member>
+        <member name="T:SeeSharpTools.JY.Statistics.ProviderEngine">
+            <summary>
+            Provider engine selection
+            </summary>
+        </member>
+        <member name="F:SeeSharpTools.JY.Statistics.ProviderEngine.MathNet">
+            <summary>
+            MathNet
+            </summary>
+        </member>
+        <member name="F:SeeSharpTools.JY.Statistics.ProviderEngine.IntelIPP">
+            <summary>
+            Intel IPP, place Intel IPP dlls under \NativeDLLs\intel64 for x64 platform and \NativeDLLs\ia32 for x86 platform before use Intel IPP as the provider engine
+            </summary>
+        </member>
+        <member name="T:SeeSharpTools.JY.Statistics.CapabilityResult">
+            <summary>
+            The result of capability calculation
+            </summary>
+        </member>
+        <member name="P:SeeSharpTools.JY.Statistics.CapabilityResult.Mu">
+            <summary>
+             The mean value of samples
+            </summary>
+        </member>
+        <member name="P:SeeSharpTools.JY.Statistics.CapabilityResult.Sigma">
+            <summary>
+            The standard deviation of samples
+            </summary>
+        </member>
+        <member name="P:SeeSharpTools.JY.Statistics.CapabilityResult.P">
+            <summary>
+            The probability of samples that within the limit
+            </summary>
+        </member>
+        <member name="P:SeeSharpTools.JY.Statistics.CapabilityResult.Pl">
+            <summary>
+            The probability of samples that below than the low limit
+            </summary>
+        </member>
+        <member name="P:SeeSharpTools.JY.Statistics.CapabilityResult.Pu">
+            <summary>
+            The probability of samples that higher than the high limit
+            </summary>
+        </member>
+        <member name="P:SeeSharpTools.JY.Statistics.CapabilityResult.Cp">
+            <summary>
+            (High - Low)/(6*Sigma)
+            </summary>
+        </member>
+        <member name="P:SeeSharpTools.JY.Statistics.CapabilityResult.Cpl">
+            <summary>
+            (Mu - L)./(3*sigma)
+            </summary>
+        </member>
+        <member name="P:SeeSharpTools.JY.Statistics.CapabilityResult.Cpu">
+            <summary>
+            (U - Mu)/(3*Sigma)
+            </summary>
+        </member>
+        <member name="P:SeeSharpTools.JY.Statistics.CapabilityResult.Cpk">
+            <summary>
+            min(Cpl, Cpu)
+            </summary>
+        </member>
+        <member name="P:SeeSharpTools.JY.Statistics.CapabilityResult.Ca">
+            <summary>
+            (Sigma-C)/(Et*0.5)
+            </summary>
+        </member>
+        <member name="T:SeeSharpTools.JY.Statistics.MajorOrder">
+            <summary>
+            The order of data
+            </summary>
+        </member>
+        <member name="F:SeeSharpTools.JY.Statistics.MajorOrder.Row">
+            <summary>
+            Calculate by row
+            </summary>
+        </member>
+        <member name="F:SeeSharpTools.JY.Statistics.MajorOrder.Column">
+            <summary>
+            Calculate by column
+            </summary>
+        </member>
+        <member name="T:SeeSharpTools.JY.Statistics.Statistics">
+            <summary>
+            Statistical functions based on MathNet and Intel IPP, to use Intel IPP platform, please place intel IPP dll in the same folder of SeeSharpTools.JY.Statistics.dll. \NativeDLLs\ia32 for x86 platform and \NativeDLLs\intel64 for x64 platform.
+            </summary>
+        </member>
+        <member name="M:SeeSharpTools.JY.Statistics.Statistics.Maximum(System.Double[])">
+            <summary>
+            Find the Maximum value from the double array (supported platforms: MathNet, Intel IPP)
+            </summary>
+            <param name="data">input data</param>
+            <returns>maximum value</returns>
+        </member>
+        <member name="M:SeeSharpTools.JY.Statistics.Statistics.Minimum(System.Double[])">
+            <summary>
+            Find the Minimum value from the double array(supported platforms: MathNet, Intel IPP)
+            </summary>
+            <param name="data">input data</param>
+            <returns></returns>
+        </member>
+        <member name="M:SeeSharpTools.JY.Statistics.Statistics.Mean(System.Double[])">
+            <summary>
+            Find the Mean value from the double array (supported platforms: MathNet, Intel IPP)
+            </summary>
+            <param name="data">input data</param>
+            <returns>minimum value</returns>
+        </member>
+        <member name="M:SeeSharpTools.JY.Statistics.Statistics.RMS(System.Double[])">
+            <summary>
+            Find the RMS value from the double array (supported platforms: MathNet)
+            </summary>
+            <param name="data">input data</param>
+            <returns>RMS value</returns>
+        </member>
+        <member name="M:SeeSharpTools.JY.Statistics.Statistics.StandardDeviation(System.Double[])">
+            <summary>
+            FInd the standard deviation from the double array (supported platforms: MathNet, Intel IPP)
+            </summary>
+            <param name="data">input data</param>
+            <returns>standard deviation value</returns>
+        </member>
+        <member name="M:SeeSharpTools.JY.Statistics.Statistics.Variance(System.Double[])">
+            <summary>
+            Find the variance from the double array (supported platforms: MathNet, Intel IPP)
+            </summary>
+            <param name="data">input data</param>
+            <returns>variance value</returns>
+        </member>
+        <member name="M:SeeSharpTools.JY.Statistics.Statistics.Skewness(System.Double[])">
+            <summary>
+            Find the skewness from the double array (supported platforms: MathNet)
+            </summary>
+            <param name="data">input data</param>
+            <returns>skewness value</returns>
+        </member>
+        <member name="M:SeeSharpTools.JY.Statistics.Statistics.Kurtosis(System.Double[])">
+            <summary>
+            Find the Kurtosis from the double array (supported platforms: MathNet)
+            </summary>
+            <param name="data">input data</param>
+            <returns>kurtosis value</returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:SeeSharpTools.JY.Statistics.Statistics.Histogram(System.Double[],System.Int32,System.Double,System.Double)" -->
+        <member name="M:SeeSharpTools.JY.Statistics.Statistics.CalculateCapability(System.Double[],System.Double,System.Double)">
+            <summary>
+            Calculate the capability of samples with specified lowLimit and highLimit
+            </summary>
+            <param name="samples">The samples to be calculated.</param>
+            <param name="lowLimit">The low limit of data.</param>
+            <param name="highLimit">The high limit of data.</param>
+            <returns></returns>
+        </member>
+        <member name="M:SeeSharpTools.JY.Statistics.Statistics.CalculateCapability(System.Double[0:,0:],System.Double,System.Double,SeeSharpTools.JY.Statistics.MajorOrder)">
+            <summary>
+            Calculate the capability of samples with specified lowLimit and highLimit
+            </summary>
+            <param name="samples">The samples to be calculated.</param>
+            <param name="lowLimit">The low limit of data.</param>
+            <param name="highLimit">The high limit of data.</param>
+            <param name="majorOrder">The major order of calculation.</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

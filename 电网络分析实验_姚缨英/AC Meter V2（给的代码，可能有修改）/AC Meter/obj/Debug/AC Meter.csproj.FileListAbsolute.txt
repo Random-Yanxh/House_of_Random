@@ -1,0 +1,125 @@
+D:\Program\repos\AC Meter\AC Meter\bin\Debug\AC Meter.exe.config
+D:\Program\repos\AC Meter\AC Meter\bin\Debug\AC Meter.exe
+D:\Program\repos\AC Meter\AC Meter\bin\Debug\AC Meter.pdb
+D:\Program\repos\AC Meter\AC Meter\bin\Debug\JYUSB61902.dll
+D:\Program\repos\AC Meter\AC Meter\bin\Debug\SeeSharpTools.JY.ArrayUtility.dll
+D:\Program\repos\AC Meter\AC Meter\bin\Debug\SeeSharpTools.JY.GUI.dll
+D:\Program\repos\AC Meter\AC Meter\bin\Debug\JYUSB61902.xml
+D:\Program\repos\AC Meter\AC Meter\bin\Debug\SeeSharpTools.JY.ArrayUtility.xml
+D:\Program\repos\AC Meter\AC Meter\bin\Debug\SeeSharpTools.JY.GUI.xml
+D:\Program\repos\AC Meter\AC Meter\obj\Debug\AC_Meter.Form1.resources
+D:\Program\repos\AC Meter\AC Meter\obj\Debug\AC_Meter.Properties.Resources.resources
+D:\Program\repos\AC Meter\AC Meter\obj\Debug\AC Meter.csproj.GenerateResource.cache
+D:\Program\repos\AC Meter\AC Meter\obj\Debug\AC Meter.csproj.CoreCompileInputs.cache
+D:\Program\repos\AC Meter\AC Meter\obj\Debug\AC Meter.csproj.CopyComplete
+D:\Program\repos\AC Meter\AC Meter\obj\Debug\AC Meter.exe
+D:\Program\repos\AC Meter\AC Meter\obj\Debug\AC Meter.pdb
+D:\Program\repos\AC Meter\AC Meter\bin\Debug\SeeSharpTools.JY.DSP.Fundamental.dll
+D:\Program\repos\AC Meter\AC Meter\bin\Debug\SeeSharpTools.JY.DSP.Fundamental.xml
+D:\Program\repos\AC Meter\AC Meter\obj\Debug\AC Meter.csproj.AssemblyReference.cache
+D:\Program\repos\AC Meter\AC Meter\bin\Debug\SeeSharpTools.JY.TCP.dll
+D:\Program\repos\AC Meter\AC Meter\bin\Debug\SeeSharpTools.JY.TCP.xml
+D:\Program\repos\AC Meter\AC Meter\bin\Debug\SeeSharpTools.JY.Statistics.dll
+D:\Program\repos\AC Meter\AC Meter\bin\Debug\MWArray.dll
+D:\Program\repos\AC Meter\AC Meter\bin\Debug\StatisticsMatlab.dll
+D:\Program\repos\AC Meter\AC Meter\bin\Debug\MathNet.Numerics.dll
+D:\Program\repos\AC Meter\AC Meter\bin\Debug\SeeSharpTools.JY.Statistics.xml
+D:\Program\repos\AC Meter\AC Meter\bin\Debug\SeeSharpTools.JY.DSP.FilteringMCR.dll
+D:\Program\repos\AC Meter\AC Meter\bin\Debug\DSPMatlab.dll
+D:\Program\repos\AC Meter\AC Meter\bin\Debug\SeeSharpTools.JY.DSP.FilteringMCR.xml
+D:\Program\repos\AC Meter V2\AC Meter\bin\Debug\AC Meter.exe.config
+D:\Program\repos\AC Meter V2\AC Meter\bin\Debug\AC Meter.exe
+D:\Program\repos\AC Meter V2\AC Meter\bin\Debug\AC Meter.pdb
+D:\Program\repos\AC Meter V2\AC Meter\bin\Debug\JYUSB61902.dll
+D:\Program\repos\AC Meter V2\AC Meter\bin\Debug\SeeSharpTools.JY.ArrayUtility.dll
+D:\Program\repos\AC Meter V2\AC Meter\bin\Debug\SeeSharpTools.JY.DSP.FilteringMCR.dll
+D:\Program\repos\AC Meter V2\AC Meter\bin\Debug\SeeSharpTools.JY.DSP.Fundamental.dll
+D:\Program\repos\AC Meter V2\AC Meter\bin\Debug\SeeSharpTools.JY.GUI.dll
+D:\Program\repos\AC Meter V2\AC Meter\bin\Debug\SeeSharpTools.JY.Statistics.dll
+D:\Program\repos\AC Meter V2\AC Meter\bin\Debug\MWArray.dll
+D:\Program\repos\AC Meter V2\AC Meter\bin\Debug\DSPMatlab.dll
+D:\Program\repos\AC Meter V2\AC Meter\bin\Debug\StatisticsMatlab.dll
+D:\Program\repos\AC Meter V2\AC Meter\bin\Debug\MathNet.Numerics.dll
+D:\Program\repos\AC Meter V2\AC Meter\bin\Debug\JYUSB61902.xml
+D:\Program\repos\AC Meter V2\AC Meter\bin\Debug\SeeSharpTools.JY.ArrayUtility.xml
+D:\Program\repos\AC Meter V2\AC Meter\bin\Debug\SeeSharpTools.JY.DSP.FilteringMCR.xml
+D:\Program\repos\AC Meter V2\AC Meter\bin\Debug\SeeSharpTools.JY.DSP.Fundamental.xml
+D:\Program\repos\AC Meter V2\AC Meter\bin\Debug\SeeSharpTools.JY.GUI.xml
+D:\Program\repos\AC Meter V2\AC Meter\bin\Debug\SeeSharpTools.JY.Statistics.xml
+D:\Program\repos\AC Meter V2\AC Meter\obj\Debug\AC_Meter.Form1.resources
+D:\Program\repos\AC Meter V2\AC Meter\obj\Debug\AC_Meter.Properties.Resources.resources
+D:\Program\repos\AC Meter V2\AC Meter\obj\Debug\AC Meter.csproj.GenerateResource.cache
+D:\Program\repos\AC Meter V2\AC Meter\obj\Debug\AC Meter.csproj.CoreCompileInputs.cache
+D:\Program\repos\AC Meter V2\AC Meter\obj\Debug\AC Meter.csproj.CopyComplete
+D:\Program\repos\AC Meter V2\AC Meter\obj\Debug\AC Meter.exe
+D:\Program\repos\AC Meter V2\AC Meter\obj\Debug\AC Meter.pdb
+D:\Program\repos\AC Meter V2\AC Meter\obj\Debug\AC Meter.csproj.AssemblyReference.cache
+D:\Program\repos\AC Meter V2\AC Meter\bin\Debug\SeeSharpTools.JY.Graph3D.dll
+D:\Program\repos\AC Meter V2\AC Meter\bin\Debug\ILNumerics.Drawing.dll
+D:\Program\repos\AC Meter V2\AC Meter\bin\Debug\ILNumerics.Net.dll
+D:\Program\repos\AC Meter V2\AC Meter\bin\Debug\OpenTK.dll
+D:\Program\repos\AC Meter V2\AC Meter\bin\Debug\SeeSharpTools.JY.Graph3D.xml
+D:\Program\repos\AC Meter V2\AC Meter\bin\Debug\SeeSharpTools.JY.DSP.SoundVibration.dll
+D:\Program\repos\AC Meter V2\AC Meter\bin\Debug\SeeSharpTools.JY.DSP.SoundVibration.xml
+E:\Program\repos\AC Meter V2\AC Meter\bin\Debug\AC Meter.exe.config
+E:\Program\repos\AC Meter V2\AC Meter\bin\Debug\AC Meter.exe
+E:\Program\repos\AC Meter V2\AC Meter\bin\Debug\AC Meter.pdb
+E:\Program\repos\AC Meter V2\AC Meter\bin\Debug\JYUSB61902.dll
+E:\Program\repos\AC Meter V2\AC Meter\bin\Debug\SeeSharpTools.JY.ArrayUtility.dll
+E:\Program\repos\AC Meter V2\AC Meter\bin\Debug\SeeSharpTools.JY.DSP.FilteringMCR.dll
+E:\Program\repos\AC Meter V2\AC Meter\bin\Debug\SeeSharpTools.JY.DSP.Fundamental.dll
+E:\Program\repos\AC Meter V2\AC Meter\bin\Debug\SeeSharpTools.JY.DSP.SoundVibration.dll
+E:\Program\repos\AC Meter V2\AC Meter\bin\Debug\SeeSharpTools.JY.Graph3D.dll
+E:\Program\repos\AC Meter V2\AC Meter\bin\Debug\SeeSharpTools.JY.GUI.dll
+E:\Program\repos\AC Meter V2\AC Meter\bin\Debug\SeeSharpTools.JY.Statistics.dll
+E:\Program\repos\AC Meter V2\AC Meter\bin\Debug\MWArray.dll
+E:\Program\repos\AC Meter V2\AC Meter\bin\Debug\DSPMatlab.dll
+E:\Program\repos\AC Meter V2\AC Meter\bin\Debug\ILNumerics.Drawing.dll
+E:\Program\repos\AC Meter V2\AC Meter\bin\Debug\ILNumerics.Net.dll
+E:\Program\repos\AC Meter V2\AC Meter\bin\Debug\StatisticsMatlab.dll
+E:\Program\repos\AC Meter V2\AC Meter\bin\Debug\MathNet.Numerics.dll
+E:\Program\repos\AC Meter V2\AC Meter\bin\Debug\OpenTK.dll
+E:\Program\repos\AC Meter V2\AC Meter\bin\Debug\JYUSB61902.xml
+E:\Program\repos\AC Meter V2\AC Meter\bin\Debug\SeeSharpTools.JY.ArrayUtility.xml
+E:\Program\repos\AC Meter V2\AC Meter\bin\Debug\SeeSharpTools.JY.DSP.FilteringMCR.xml
+E:\Program\repos\AC Meter V2\AC Meter\bin\Debug\SeeSharpTools.JY.DSP.Fundamental.xml
+E:\Program\repos\AC Meter V2\AC Meter\bin\Debug\SeeSharpTools.JY.DSP.SoundVibration.xml
+E:\Program\repos\AC Meter V2\AC Meter\bin\Debug\SeeSharpTools.JY.Graph3D.xml
+E:\Program\repos\AC Meter V2\AC Meter\bin\Debug\SeeSharpTools.JY.GUI.xml
+E:\Program\repos\AC Meter V2\AC Meter\bin\Debug\SeeSharpTools.JY.Statistics.xml
+E:\Program\repos\AC Meter V2\AC Meter\obj\Debug\AC Meter.csproj.AssemblyReference.cache
+E:\Program\repos\AC Meter V2\AC Meter\obj\Debug\AC Meter.csproj.SuggestedBindingRedirects.cache
+E:\Program\repos\AC Meter V2\AC Meter\obj\Debug\AC_Meter.Form1.resources
+E:\Program\repos\AC Meter V2\AC Meter\obj\Debug\AC_Meter.Properties.Resources.resources
+E:\Program\repos\AC Meter V2\AC Meter\obj\Debug\AC Meter.csproj.GenerateResource.cache
+E:\Program\repos\AC Meter V2\AC Meter\obj\Debug\AC Meter.csproj.CoreCompileInputs.cache
+E:\Program\repos\AC Meter V2\AC Meter\obj\Debug\AC Meter.csproj.CopyComplete
+E:\Program\repos\AC Meter V2\AC Meter\obj\Debug\AC Meter.exe
+E:\Program\repos\AC Meter V2\AC Meter\obj\Debug\AC Meter.pdb
+G:\Code\C#\AC Meter V2\AC Meter\bin\Debug\AC Meter.exe.config
+G:\Code\C#\AC Meter V2\AC Meter\bin\Debug\AC Meter.exe
+G:\Code\C#\AC Meter V2\AC Meter\bin\Debug\AC Meter.pdb
+G:\Code\C#\AC Meter V2\AC Meter\bin\Debug\JYUSB61902.dll
+G:\Code\C#\AC Meter V2\AC Meter\bin\Debug\MWArray.dll
+G:\Code\C#\AC Meter V2\AC Meter\bin\Debug\DSPMatlab.dll
+G:\Code\C#\AC Meter V2\AC Meter\bin\Debug\ILNumerics.Drawing.dll
+G:\Code\C#\AC Meter V2\AC Meter\bin\Debug\ILNumerics.Net.dll
+G:\Code\C#\AC Meter V2\AC Meter\bin\Debug\StatisticsMatlab.dll
+G:\Code\C#\AC Meter V2\AC Meter\bin\Debug\MathNet.Numerics.dll
+G:\Code\C#\AC Meter V2\AC Meter\bin\Debug\OpenTK.dll
+G:\Code\C#\AC Meter V2\AC Meter\bin\Debug\JYUSB61902.xml
+G:\Code\C#\AC Meter V2\AC Meter\bin\Debug\SeeSharpTools.JY.ArrayUtility.xml
+G:\Code\C#\AC Meter V2\AC Meter\bin\Debug\SeeSharpTools.JY.DSP.FilteringMCR.xml
+G:\Code\C#\AC Meter V2\AC Meter\bin\Debug\SeeSharpTools.JY.DSP.Fundamental.xml
+G:\Code\C#\AC Meter V2\AC Meter\bin\Debug\SeeSharpTools.JY.DSP.SoundVibration.xml
+G:\Code\C#\AC Meter V2\AC Meter\bin\Debug\SeeSharpTools.JY.Graph3D.xml
+G:\Code\C#\AC Meter V2\AC Meter\bin\Debug\SeeSharpTools.JY.GUI.xml
+G:\Code\C#\AC Meter V2\AC Meter\bin\Debug\SeeSharpTools.JY.Statistics.xml
+G:\Code\C#\AC Meter V2\AC Meter\obj\Debug\AC Meter.csproj.AssemblyReference.cache
+G:\Code\C#\AC Meter V2\AC Meter\obj\Debug\AC_Meter.Form1.resources
+G:\Code\C#\AC Meter V2\AC Meter\obj\Debug\AC_Meter.Properties.Resources.resources
+G:\Code\C#\AC Meter V2\AC Meter\obj\Debug\AC Meter.csproj.GenerateResource.cache
+G:\Code\C#\AC Meter V2\AC Meter\obj\Debug\AC Meter.csproj.CoreCompileInputs.cache
+G:\Code\C#\AC Meter V2\AC Meter\obj\Debug\AC Meter.csproj.Up2Date
+G:\Code\C#\AC Meter V2\AC Meter\obj\Debug\AC Meter.exe
+G:\Code\C#\AC Meter V2\AC Meter\obj\Debug\AC Meter.pdb

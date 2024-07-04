@@ -1,0 +1,3534 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>JYUSB61902</name>
+    </assembly>
+    <members>
+        <member name="T:JYUSB61902.JYLogLevel">
+            <summary>
+            日志级别定义
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYLogLevel.DEBUG">
+            <summary>
+            DEBUG Level指出细粒度信息事件对调试应用程序是非常有帮助的
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYLogLevel.INFO">
+            <summary>
+            INFO level表明 消息在粗粒度级别上突出强调应用程序的运行过程
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYLogLevel.WARN">
+            <summary>
+            WARN level表明会出现潜在错误的情形。
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYLogLevel.ERROR">
+            <summary>
+            ERROR level指出虽然发生错误事件，但仍然不影响系统的继续运行。
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYLogLevel.FATAL">
+            <summary>
+            FATAL level指出每个严重的错误事件将会导致应用程序的退出。
+            </summary>
+        </member>
+        <member name="T:JYUSB61902.JYLog">
+            <summary>
+            日志打印类，用于在程序逻辑中打印一些日记记录到文件，方便调试程序，
+            同时客户使用时如果遇到问题，也可以使能日志打印的功能，方便定位错误的原因
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.JYLog.LogLevel">
+            <summary>
+            日志等级，默认为ERROR
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYLog._logMsgQ">
+            <summary>
+            用于日志消息缓存的队列，首次调用时初始化
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.JYLog.EnableLog">
+            <summary>
+            使能日志打印功能
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.JYLog.Print(System.String,System.Object[])">
+            <summary>
+            写入日志文件,需要定义宏ENABLELOG 或 DEBUG，此方法兼容旧版
+            </summary>
+            <param name="logMsg">要打印的消息内容</param>
+            <param name="args">参数</param>
+        </member>
+        <member name="M:JYUSB61902.JYLog.Print(JYUSB61902.JYLogLevel,System.String,System.Object[])">
+            <summary>
+            写入日志文件,需要定义宏ENABLELOG 或 DEBUG
+            </summary>
+            <param name="logLevel">日志等级</param>
+            <param name="logMsg">要打印的消息内容</param>
+            <param name="args">参数</param>
+        </member>
+        <member name="M:JYUSB61902.JYLog.FuncWriteLog">
+            <summary>
+            轮询日志队列的定时器回调函数
+            </summary>
+            <param name="state"></param>
+        </member>
+        <member name="T:JYUSB61902.JYErrorCode">
+            <summary>
+            错误代码的定义
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYErrorCode.NoError">
+            <summary>
+            无错误
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYErrorCode.TimeOut">
+            <summary>
+            超时
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYErrorCode.ErrorParam">
+            <summary>
+            参数错误
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYErrorCode.IncorrectCallOrder">
+            <summary>
+            调用顺序不正确
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYErrorCode.CannotCall">
+            <summary>
+            当前配置不能调用该方法
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYErrorCode.UserBufferError">
+            <summary>
+            用户缓冲区错误
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYErrorCode.BufferOverflow">
+            <summary>
+            缓冲区溢出
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYErrorCode.BufferDownflow">
+            <summary>
+            缓冲区下溢出
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYErrorCode.HardwareResourceReserved">
+            <summary>
+            硬件资源已被占用
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYErrorCode.aiIsStart">
+            <summary>
+            AI已经启动，不用添加通道
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYErrorCode.ErrorParam1">
+            <summary>
+            输入幅值范围不正确,范围最大值和最小值
+            </summary>
+        </member>
+        <member name="T:JYUSB61902.JYDriverExceptionPublic">
+            <summary>
+            驱动常用错误代码枚举定义
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYDriverExceptionPublic.UnKnown">
+            <summary>
+            未知异常
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYDriverExceptionPublic.InitializeFailed">
+            <summary>
+            初始化失败，
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYDriverExceptionPublic.TimeOut">
+            <summary>
+            超时
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYDriverExceptionPublic.ErrorParam">
+            <summary>
+            参数错误
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYDriverExceptionPublic.IncorrectCallOrder">
+            <summary>
+            调用顺序不正确，AI任务结束且各通道待读取的样点数大于当前缓冲区内每通道可以读取的点数时不允许读取数据
+            
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYDriverExceptionPublic.CannotCall">
+            <summary>
+            当前配置不能调用该方法,
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYDriverExceptionPublic.UserBufferError">
+            <summary>
+            用户缓冲区错误，ReadData时缓冲区的长度小于采样点数，ReadRawData或GetRecordPreviewData时缓冲区数组的行数
+            小于每通道采样点数或者列数小于通道数
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYDriverExceptionPublic.BufferOverflow">
+            <summary>
+            缓冲区溢出,缓冲区设置太小
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYDriverExceptionPublic.BufferDownflow">
+            <summary>
+            缓冲区下溢出, 本地缓冲区中的数据不足。
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYDriverExceptionPublic.HardwareResourceReserved">
+            <summary>
+            硬件资源已被占用
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYDriverExceptionPublic.aiIsStart">
+            <summary>
+            AI已经启动，不用添加或者删除通道，连续模式不允许未调用Start而读取数据
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYDriverExceptionPublic.RangeError">
+             <summary>
+            添加通道时输入幅值范围不正确,范围最大值和最小值应大于0且最小值应小于最大值
+             </summary>
+        </member>
+        <member name="F:JYUSB61902.JYDriverExceptionPublic.terminalCfgError">
+            <summary>
+            新添加的通道配置方式与已添加的不一致
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYDriverExceptionPublic.AddChnIdError">
+            <summary>
+            新添加或者删除的通道号小于0或者通道号超出索引范围,输入通道号应为大于0，且在伪差分模式时为（0-7），单端模式是（0-15）
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYDriverExceptionPublic.AddChnIdsError">
+            <summary>
+            添加多通道，输入通道号数组超出索引范围，在伪差分模式时为（0-7），单端模式是（0-15）
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYDriverExceptionPublic.IncorrectModeChoose">
+            <summary>
+            Mode不是Finite或Continuous，不允许调用ReadData（WriteData）或ReadRawData（WriteRawData）
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYDriverExceptionPublic.RawDataLenError">
+            <summary>
+            进行Scale转换的原始数据RawData的长度与设置不一致
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYDriverExceptionPublic.ErrorSamplesperChannel">
+            <summary>
+            读原始数据时，各通道待读取的样点数要大于0
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYDriverExceptionPublic.UserBufferLenError">
+            <summary>
+            单点模式下读取数据数组元素个数与通道数不一致
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYDriverExceptionPublic.adlinkErr">
+            <summary>
+            内部异常
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYDriverExceptionPublic.ConfigDoubleBufferError">
+            <summary>
+            config double buffer failed！(配置双缓冲失败)
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYDriverExceptionPublic.samplesPerChannelError">
+            <summary>
+            每通道采样点数大于0
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYDriverExceptionPublic.SampleOver">
+            <summary>
+            采样率大于最大值
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYDriverExceptionPublic.AOIncorrectCallOrder">
+            <summary>
+             调用顺序不正确，AO任务结束且各通道待更新的样点数大于当前缓冲区内每通道可以更新的点数时不允许写入数据
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYDriverExceptionPublic.AOIsStart">
+            <summary>
+            AO已经启动，不用添加通道或者删除通道
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYDriverExceptionPublic.ErrorSampleToUpdate">
+            <summary>
+            有限点模式下，写入原始数据每通道更新率应大于0
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYDriverExceptionPublic.AOUserBufferError">
+            <summary>
+            用户缓冲区错误，原始数据写入缓存的列数应大于或等于通道数或者在有限点模式下每通道写入的样点数应大于或等于每通道更新点数。
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYDriverExceptionPublic.IncorrectWriteCallOrder">
+            <summary>
+            AO连续环绕模式下任务已启动，此时不允许写入。
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYDriverExceptionPublic.IncorrectWriteUseBuff">
+            <summary>
+            AOContinuousNoWrapping模式，首次写入的点数应大于30*1024点
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYDriverExceptionPublic.CountChanlIdError">
+            <summary>
+            计数器1和3不支持CI操作
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYDriverExceptionPublic.CINotStart">
+            <summary>
+            CI任务没有开始不能调用ReadCounter
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYDriverExceptionPublic.CannotCallReadMeasure">
+            <summary>
+            CI计数模式时，不能调用ReadMeasure
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYDriverExceptionPublic.ExternalClockRateError">
+            <summary>
+            CI使用了外部时钟源，但是设置的外部时钟频率应该大于0
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYDriverExceptionPublic.DIOConfigError">
+            <summary>
+            配置到硬件异常
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYDriverExceptionPublic.CONotStart">
+            <summary>
+            CO启动之后再配置应用参数。
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYDriverExceptionPublic.LineNumError">
+            <summary>
+            添加的位号索引不正确,索引范围应为0-7
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYDriverExceptionPublic.DIBitLenError">
+            <summary>
+            用户缓冲区不足,缓冲区的长度小于通道位号的长度
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYDriverExceptionPublic.DOLineNumError">
+            <summary>
+            添加通道时，位号取值在0和4之间（不包括4）。
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYDriverExceptionPublic.NoError">
+            <summary>
+            没有错误
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYDriverExceptionPublic.ConfigContAcqError">
+            <summary>
+            配置AI双缓冲失败！
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYDriverExceptionPublic.InterError">
+            <summary>
+            调用API异常
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYDriverExceptionPublic.CallError">
+            <summary>
+            调用函数错误
+            </summary>
+        </member>
+        <member name="T:JYUSB61902.JYDriverException">
+            <summary>
+            JY异常类
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.JYDriverException.FollowingException">
+            <summary>
+            异常链表指针, 指向后一个异常。
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.JYDriverException.#ctor(System.Int32)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.JYDriverException.#ctor(JYUSB61902.JYDriverExceptionPublic)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.JYDriverException.#ctor(System.String,JYUSB61902.JYDriverExceptionPublic)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.JYDriverException.#ctor(JYUSB61902.JYDriverExceptionPublic,System.String,System.Object[])">
+            <summary>
+            构造函数
+            </summary>
+            <param name="msg">异常描述信息</param>
+            <param name="errorCode">内部错误代码，通常是底层驱动返回的原始错误代码，无则默认为0</param>
+        </member>
+        <member name="M:JYUSB61902.JYDriverException.#ctor(System.Int32,System.String,System.Object[])">
+            <summary>
+            构造函数
+            </summary>
+            <param name="errorCode">内部错误代码，通常是底层驱动返回的原始错误代码，无则默认为0</param>
+            <param name="msg">异常描述信息</param>
+            <param name="args">格式化参数</param>
+        </member>
+        <member name="M:JYUSB61902.JYDriverException.#ctor(System.String,System.Exception)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="msg">异常描述信息</param>
+            <param name="innerException">导致当前异常的异常。如果 innerException 不为 null，则在处理内部异常的 catch 块中引发当前异常。</param>
+            <param name="errorCode">内部错误代码，通常是底层驱动返回的原始错误代码，无则默认为0</param>
+        </member>
+        <member name="F:JYUSB61902.JYDriverException.ErrorCode">
+            <summary>
+            错误代码
+            </summary>
+        </member>
+        <member name="T:JYUSB61902.JYDriverThreadExceptionManager">
+            <summary>
+            线程抛出异常管理类
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYDriverThreadExceptionManager._headException">
+            <summary>
+            异常链表头指针。收集非主线程产生的异常并链接成链表，在调用Stop()方法时将这些异常反馈给用户。
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYDriverThreadExceptionManager._currentException">
+            <summary>
+            异常链表当前节点
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYDriverThreadExceptionManager.adlinkErr">
+            <summary>
+            内部异常
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.JYDriverThreadExceptionManager.ClearThreadExceptions">
+            <summary>
+            清除非主线程产生的异常
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.JYDriverThreadExceptionManager.ReportThreadExceptions">
+            <summary>
+            报告异常
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.JYDriverThreadExceptionManager.AppendThreadException(JYUSB61902.JYDriverException)">
+            <summary>
+            将异常添加到异常变量
+            </summary>
+            <param name="e">异常对象</param>
+            <remarks>
+            若使用 
+            <code> (DaqTaskException)Activator.CreateInstance(e.GetType(), e.Message, _currentException);</code>
+            , 虽不必使用FollowingException属性, 但 e.InnerException 信息将丢失.
+            </remarks>
+        </member>
+        <member name="T:JYUSB61902.WaitEvent">
+            <summary>
+            等待事件类
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.WaitEvent.Event">
+            <summary>
+            AutoResetEvent事件对象
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.WaitEvent.ConditionHandler">
+            <summary>
+            执行此操作，返回值为true时，发出（Set）事件（Event）；否则不发出事件。
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.WaitEvent.IsEnabled">
+            <summary>
+            事件是否处于被等待状态
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.WaitEvent.#ctor(System.Func{System.Boolean})">
+            <summary>
+            创建等待事件对象
+            </summary>
+            <param name="conditionHandler">事件触发条件</param>
+        </member>
+        <member name="M:JYUSB61902.WaitEvent.EnqueueWait(System.Collections.Generic.Queue{JYUSB61902.WaitEvent},System.Int32)">
+            <summary>
+            <para>加入事件队列，并等待一段时间，判断事件是否触发。</para>
+            <para>若检测到ConditionHandler()或者timeout为0，立即返回，不使用Event.</para>
+            </summary>
+            <param name="evQueue">事件队列</param>
+            <param name="timeout">超时时间(单位:ms)</param>
+            <returns>
+            <para>true---触发条件满足</para>
+            <para>false---触发条件不满足</para>
+            </returns>
+        </member>
+        <member name="M:JYUSB61902.WaitEvent.Wait(System.Int32)">
+            <summary>
+            等待一段时间，判断事件是否发出。（不加入事件队列）
+            若检测到ConditionHandler()或者timeout为0，立即返回，不使用Event.
+            </summary>
+            <param name="timeout">超时时间(单位:ms)</param>
+            <returns>
+            <para>true---触发条件满足</para>
+            <para>false---触发条件不满足</para>
+            </returns>
+        </member>
+        <member name="M:JYUSB61902.WaitEvent.Set">
+            <summary>
+            触发事件
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:JYUSB61902.CircularBuffer`1">
+            <summary>
+            循环缓冲队列类，旧版本，托管内存
+            </summary>
+            <typeparam name="T">泛型</typeparam>
+        </member>
+        <member name="P:JYUSB61902.CircularBuffer`1.NumOfElement">
+            <summary>
+            当前的元素个数
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.CircularBuffer`1.BufferSize">
+            <summary>
+            缓冲区的大小
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.CircularBuffer`1.CurrentCapacity">
+            <summary>
+            当前能容纳的点数
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.CircularBuffer`1.#ctor(System.Int32)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="bufferSize"></param>
+        </member>
+        <member name="M:JYUSB61902.CircularBuffer`1.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.CircularBuffer`1.AdjustSize(System.Int32)">
+            <summary>
+            调整缓冲区大小，数据会被清空
+            </summary>
+            <param name="size"></param>
+        </member>
+        <member name="M:JYUSB61902.CircularBuffer`1.Clear">
+            <summary>
+            清空缓冲区内的数据
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.CircularBuffer`1.Enqueue(`0)">
+            <summary>
+            向缓冲队列中放入一个数据
+            </summary>
+            <param name="element"></param>
+        </member>
+        <member name="M:JYUSB61902.CircularBuffer`1.Enqueue(`0[])">
+            <summary>
+            向缓冲队列中放入一组数据
+            </summary>
+            <param name="elements"></param>
+        </member>
+        <member name="M:JYUSB61902.CircularBuffer`1.Enqueue(`0[],System.Int32)">
+            <summary>
+            向缓冲队列中放入一组数据
+            </summary>
+            <param name="elements"></param>
+        </member>
+        <member name="M:JYUSB61902.CircularBuffer`1.Enqueue(`0[0:,0:])">
+            <summary>
+            向缓冲队列中放入一组数据
+            </summary>
+            <param name="elements"></param>
+        </member>
+        <member name="M:JYUSB61902.CircularBuffer`1.Dequeue(`0@)">
+            <summary>
+            从缓冲队列中取一个数据
+            </summary>
+            <returns>失败：-1，1：返回一个数据</returns>
+        </member>
+        <member name="M:JYUSB61902.CircularBuffer`1.Dequeue(`0[]@,System.Int32)">
+            <summary>
+            从缓冲队列中取出指定长度的数据
+            </summary>
+            <param name="reqBuffer">请求读取缓冲区</param>
+            <returns>返回实际取到的数据长度</returns>
+        </member>
+        <member name="M:JYUSB61902.CircularBuffer`1.Dequeue(`0[0:,0:]@,System.Int32)">
+            <summary>
+            从缓冲队列中取出指定长度的数据
+            </summary>
+            <param name="reqBuffer">请求读取缓冲区</param>
+            <returns>返回实际取到的数据长度</returns>
+        </member>
+        <member name="T:JYUSB61902.WinAPI">
+            <summary>
+            windows api 的函数导入
+            </summary>
+        </member>
+        <member name="T:JYUSB61902.BufferQueue`1">
+            <summary>
+            缓冲队列类（托管内存固定）该类效率较低，不推荐使用
+            </summary>
+        </member>
+        <member name="T:JYUSB61902.BufferQueue`1.CDataInfo">
+            <summary>
+            存放数据信息的类
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.BufferQueue`1.CDataInfo.Count">
+            <summary>
+            数据点数
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.BufferQueue`1.CDataInfo.ElemType">
+            <summary>
+            数据元素类型
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.BufferQueue`1.CDataInfo.RDIndex">
+            <summary>
+            读指针位置
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.BufferQueue`1.CDataInfo.DataPtr">
+            <summary>
+            数据指针
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.BufferQueue`1.CDataInfo.DataArray">
+            <summary>
+            数据数组
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.BufferQueue`1.CDataInfo._dataGCHandle">
+            <summary>
+            GC Handle 
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.BufferQueue`1.CDataInfo.#ctor(System.Int32)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.BufferQueue`1.CDataInfo.IncIdx(System.Int32)">
+            <summary>
+            递增读指针
+            </summary>
+            <param name="count"></param>
+        </member>
+        <member name="M:JYUSB61902.BufferQueue`1.CDataInfo.Dispose">
+            <summary>
+            全部释放
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.BufferQueue`1._dataQ">
+            <summary>
+            用于数据缓存的队列，首次调用时初始化
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.BufferQueue`1.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.BufferQueue`1.NumOfElement">
+            <summary>
+            当前的元素个数
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.BufferQueue`1.Clear">
+            <summary>
+            清空队列内的数据
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.BufferQueue`1.Enqueue(`0[])">
+            <summary>
+            向缓冲队列中放入一组数据
+            </summary>
+            <param name="elements"></param>
+        </member>
+        <member name="M:JYUSB61902.BufferQueue`1.Enqueue(`0[],System.Int32)">
+            <summary>
+            向缓冲队列中放入一组数据
+            </summary>
+            <param name="elements"></param>
+        </member>
+        <member name="M:JYUSB61902.BufferQueue`1.Enqueue(`0[0:,0:])">
+            <summary>
+            向缓冲队列中放入一组数据
+            </summary>
+            <param name="elements"></param>
+        </member>
+        <member name="M:JYUSB61902.BufferQueue`1.Dequeue(`0[]@,System.Int32)">
+            <summary>
+            从缓冲队列中取出指定长度的数据
+            </summary>
+            <param name="reqBuffer">请求读取缓冲区</param>
+            <returns>返回实际取到的数据长度</returns>
+        </member>
+        <member name="M:JYUSB61902.BufferQueue`1.Dequeue(`0[0:,0:]@,System.Int32)">
+            <summary>
+            从缓冲队列中取出指定长度的数据
+            </summary>
+            <param name="reqBuffer">请求读取缓冲区</param>
+            <returns>返回实际取到的数据长度</returns>
+        </member>
+        <member name="T:JYUSB61902.BufferQueueEx`1">
+            <summary>
+            缓冲队列类（非托管内存）该类效率较低，不推荐使用
+            </summary>
+        </member>
+        <member name="T:JYUSB61902.BufferQueueEx`1.CDataInfo">
+            <summary>
+            存放数据信息的类
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.BufferQueueEx`1.CDataInfo.Count">
+            <summary>
+            数据点数
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.BufferQueueEx`1.CDataInfo.ElemType">
+            <summary>
+            数据元素类型
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.BufferQueueEx`1.CDataInfo.RDIndex">
+            <summary>
+            读指针位置
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.BufferQueueEx`1.CDataInfo.DataPtr">
+            <summary>
+            数据指针
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.BufferQueueEx`1.CDataInfo.#ctor(System.Int32)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.BufferQueueEx`1.CDataInfo.IncIdx(System.Int32)">
+            <summary>
+            递增读指针
+            </summary>
+            <param name="count"></param>
+        </member>
+        <member name="M:JYUSB61902.BufferQueueEx`1.CDataInfo.Dispose">
+            <summary>
+            全部释放
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.BufferQueueEx`1._dataQ">
+            <summary>
+            用于数据缓存的队列，首次调用时初始化
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.BufferQueueEx`1.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.BufferQueueEx`1.NumOfElement">
+            <summary>
+            当前的元素个数
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.BufferQueueEx`1.Clear">
+            <summary>
+            清空队列内的数据
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.BufferQueueEx`1.Enqueue(`0[])">
+            <summary>
+            向缓冲队列中放入一组数据
+            </summary>
+            <param name="elements"></param>
+        </member>
+        <member name="M:JYUSB61902.BufferQueueEx`1.Enqueue(`0[],System.Int32)">
+            <summary>
+            向缓冲队列中放入一组数据
+            </summary>
+            <param name="elements"></param>
+        </member>
+        <member name="M:JYUSB61902.BufferQueueEx`1.Enqueue(`0[0:,0:])">
+            <summary>
+            向缓冲队列中放入一组数据
+            </summary>
+            <param name="elements"></param>
+        </member>
+        <member name="M:JYUSB61902.BufferQueueEx`1.Dequeue(`0[]@,System.Int32)">
+            <summary>
+            从缓冲队列中取出指定长度的数据
+            </summary>
+            <param name="reqBuffer">请求读取缓冲区</param>
+            <returns>返回实际取到的数据长度</returns>
+        </member>
+        <member name="M:JYUSB61902.BufferQueueEx`1.Dequeue(`0[0:,0:]@,System.Int32)">
+            <summary>
+            从缓冲队列中取出指定长度的数据
+            </summary>
+            <param name="reqBuffer">请求读取缓冲区</param>
+            <returns>返回实际取到的数据长度</returns>
+        </member>
+        <member name="T:JYUSB61902.CircularBufferEx`1">
+            <summary>
+            循环缓冲队列扩展类（非托管内存），主要用于实现循环缓冲链，该类较高，推荐使用，但跨平台需要重新修改
+            </summary>
+            <typeparam name="T">泛型</typeparam>
+        </member>
+        <member name="F:JYUSB61902.CircularBufferEx`1._sizeOfT">
+            <summary>
+            T的Size，创建队列的时候初始化
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.CircularBufferEx`1._bufferPtr">
+            <summary>
+            缓冲区的指针首地址
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.CircularBufferEx`1._WRIdx">
+            <summary>
+            队列写指针
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.CircularBufferEx`1._RDIdx">
+            <summary>
+            队列读指针
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.CircularBufferEx`1.NumOfElement">
+            <summary>
+            当前的元素个数
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.CircularBufferEx`1.BufferSize">
+            <summary>
+            缓冲区的大小
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.CircularBufferEx`1.CurrentCapacity">
+            <summary>
+            当前能容纳的点数
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.CircularBufferEx`1.#ctor(System.Int32)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="bufferSize"></param>
+        </member>
+        <member name="M:JYUSB61902.CircularBufferEx`1.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.CircularBufferEx`1.Dispose">
+            <summary>
+            释放循环缓冲区
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.CircularBufferEx`1.Clear">
+            <summary>
+            清空循环缓冲区的数据
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.CircularBufferEx`1.Finalize">
+            <summary>
+            析构函数，避免非托管内存没有释放
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.CircularBufferEx`1.Enqueue(`0[])">
+            <summary>
+            向缓冲队列中放入一组数据
+            </summary>
+            <param name="elements"></param>
+        </member>
+        <member name="M:JYUSB61902.CircularBufferEx`1.Enqueue(`0[],System.Int32)">
+            <summary>
+            向缓冲队列中放入一组数据
+            </summary>
+            <param name="elements"></param>
+        </member>
+        <member name="M:JYUSB61902.CircularBufferEx`1.Enqueue(`0[],System.Int32,System.Int32)">
+            <summary>
+            向缓冲队列中放入一组数据
+            </summary>
+            <param name="elements"></param>
+        </member>
+        <member name="M:JYUSB61902.CircularBufferEx`1.Enqueue(`0[0:,0:])">
+            <summary>
+            向缓冲队列中放入一组数据
+            </summary>
+            <param name="elements"></param>
+        </member>
+        <member name="M:JYUSB61902.CircularBufferEx`1.Enqueue(`0[0:,0:],System.Int32,System.Int32)">
+            <summary>
+            向缓冲队列中放入一组数据
+            </summary>
+            <param name="elements"></param>
+        </member>
+        <member name="M:JYUSB61902.CircularBufferEx`1.Enqueue(System.IntPtr,System.Int32,System.Int32)">
+            <summary>
+            向缓冲队列中放入一组数据
+            </summary>
+            <param name="dataPtr">数据首地址</param>
+            <param name="srcIdx">数据开始的索引（以元素为单位，非字节单位）</param>
+            <param name="len">数据长度（以元素为单位，非字节单位）</param>
+            <returns></returns>
+        </member>
+        <member name="M:JYUSB61902.CircularBufferEx`1.Dequeue(`0[]@,System.Int32)">
+            <summary>
+            从缓冲队列中取出指定长度的数据
+            </summary>
+            <param name="reqBuffer">请求读取缓冲区</param>
+            <returns>返回实际取到的数据长度</returns>
+        </member>
+        <member name="M:JYUSB61902.CircularBufferEx`1.Dequeue(`0[]@,System.Int32,System.Int32)">
+            <summary>
+            从缓冲队列中取出指定长度的数据
+            </summary>
+            <param name="reqBuffer">请求读取缓冲区</param>
+            <returns>返回实际取到的数据长度</returns>
+        </member>
+        <member name="M:JYUSB61902.CircularBufferEx`1.Dequeue(`0[0:,0:]@,System.Int32,System.Int32)">
+            <summary>
+            从缓冲队列中取出指定长度的数据
+            </summary>
+            <param name="reqBuffer">请求读取缓冲区</param>
+            <returns>返回实际取到的数据长度</returns>
+        </member>
+        <member name="M:JYUSB61902.CircularBufferEx`1.Dequeue(`0[0:,0:]@,System.Int32)">
+            <summary>
+            从缓冲队列中取出指定长度的数据
+            </summary>
+            <param name="reqBuffer">请求读取缓冲区</param>
+            <returns>返回实际取到的数据长度</returns>
+        </member>
+        <member name="M:JYUSB61902.CircularBufferEx`1.Dequeue(System.IntPtr,System.Int32,System.Int32)">
+            <summary>
+            从缓冲队列中取出指定长度的数据
+            </summary>
+            <param name="reqBufferPtr">请求数据的首地址</param>
+            <param name="dstIdx">目标数据的开始索引（以元素为单位，非字节单位）</param>
+            <param name="len">出队数据的长度（以元素为单位，非字节单位）</param>
+            <returns></returns>
+        </member>
+        <member name="T:JYUSB61902.CircularBufferList`1">
+            <summary>
+            <para>循环缓冲链类，将CircularBufferEx链起来</para>
+            <para>优点：不用预先分配较大的内存，当程序运行时不够用了再按块增加</para>
+            <para>使用注意：块大小要合适，不能太小，也不能太大。</para>
+            <para>----太小：增加内存拷贝的次数，消耗CPU资源；</para>
+            <para>----太大：增加内存占用。</para>
+            <para>推荐分配块大小为入队和出队数据量的4~16倍</para>
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="F:JYUSB61902.CircularBufferList`1._numOfElement">
+            <summary>
+            元素个数计数
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.CircularBufferList`1.NumOfElement">
+            <summary>
+            当前元素个数
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.CircularBufferList`1.CurrentCapacity">
+            <summary>
+            当前缓冲区容量
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.CircularBufferList`1._blockSize">
+            <summary>
+            块大小
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.CircularBufferList`1._lstCircleBuffer">
+            <summary>
+            循环缓冲链表
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.CircularBufferList`1._RDBlockIdx">
+            <summary>
+            读写索引
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.CircularBufferList`1._WRBlockIdx">
+            <summary>
+            读写索引
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.CircularBufferList`1._LastBlockCount">
+            <summary>
+            上一次Dequeue后的块数
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.CircularBufferList`1._firstDequeueFlag">
+            <summary>
+            第一次Dequeue后标志为false
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.CircularBufferList`1.#ctor(System.Int32)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="blockSize"></param>
+        </member>
+        <member name="M:JYUSB61902.CircularBufferList`1.Clear">
+            <summary>
+            清空循环缓冲区的数据
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.CircularBufferList`1.Dispose">
+            <summary>
+            释放循环缓冲区
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.CircularBufferList`1.Finalize">
+            <summary>
+            析构函数，避免非托管内存没有释放
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.CircularBufferList`1.Enqueue(`0[])">
+            <summary>
+            数据入队
+            </summary>
+            <param name="elems">入队的数据源数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:JYUSB61902.CircularBufferList`1.Enqueue(`0[],System.Int32,System.Int32)">
+            <summary>
+            数据入队，带数据源的开始索引
+            </summary>
+            <param name="elems">入队的数据源数组</param>
+            <param name="srcIdx">数据源的开始索引</param>
+            <param name="len">入队的数据长度</param>
+            <returns></returns>
+        </member>
+        <member name="M:JYUSB61902.CircularBufferList`1.Enqueue(`0[],System.Int32)">
+            <summary>
+            数据入队，不带数据源的开始索引
+            </summary>
+            <param name="elems">入队的数据源数组</param>
+            <param name="len">入队的数据长度</param>
+            <returns></returns>
+        </member>
+        <member name="M:JYUSB61902.CircularBufferList`1.Enqueue(System.IntPtr,System.Int32,System.Int32)">
+            <summary>
+            数据入队，带数据源的开始索引
+            </summary>
+            <param name="elemsPtr">入队的数据源数组地址</param>
+            <param name="srcIdx">数据源的开始索引（以元素为单位，非字节）</param>
+            <param name="len">入队的数据长度（以元素为单位，非字节）</param>
+            <returns></returns>
+        </member>
+        <member name="M:JYUSB61902.CircularBufferList`1.Enqueue(`0[0:,0:],System.Int32,System.Int32)">
+            <summary>
+            数据入队，带数据源的开始索引
+            </summary>
+            <param name="elems">入队的数据源数组</param>
+            <param name="srcIdx">数据源的开始索引</param>
+            <param name="len">入队的数据长度</param>
+            <returns></returns>
+        </member>
+        <member name="M:JYUSB61902.CircularBufferList`1.Enqueue(`0[0:,0:],System.Int32)">
+            <summary>
+            数据入队，不带数据源的开始索引
+            </summary>
+            <param name="elems">入队的数据源数组</param>
+            <param name="len">入队的数据长度</param>
+            <returns></returns>
+        </member>
+        <member name="M:JYUSB61902.CircularBufferList`1.Dequeue(`0[]@)">
+            <summary>
+            数据出队
+            </summary>
+            <param name="retBuffer">请求出队的目标数组</param>
+            <returns></returns>
+        </member>
+        <member name="M:JYUSB61902.CircularBufferList`1.Dequeue(`0[]@,System.Int32,System.Int32)">
+            <summary>
+            数据出队，带目标数组的开始索引
+            </summary>
+            <param name="retBuffer">请求出队的目标数组</param>
+            <param name="dstIdx">目标数组的开始索引</param>
+            <param name="len">出队的数据长度</param>
+            <returns></returns>
+        </member>
+        <member name="M:JYUSB61902.CircularBufferList`1.Dequeue(`0[]@,System.Int32)">
+            <summary>
+            数据出队，不带目标数组的开始索引
+            </summary>
+            <param name="retBuffer">请求出队的目标数组</param>
+            <param name="len">出队的数据长度</param>
+            <returns></returns>
+        </member>
+        <member name="M:JYUSB61902.CircularBufferList`1.Dequeue(`0[0:,0:]@,System.Int32,System.Int32)">
+            <summary>
+            数据出队，带目标数组的开始索引
+            </summary>
+            <param name="retBuffer">请求出队的目标数组</param>
+            <param name="dstIdx">目标数组的开始索引</param>
+            <param name="len">出队的数据长度</param>
+            <returns></returns>
+        </member>
+        <member name="M:JYUSB61902.CircularBufferList`1.Dequeue(`0[0:,0:]@,System.Int32)">
+            <summary>
+            数据出队，不带目标数组的开始索引
+            </summary>
+            <param name="retBuffer">请求出队的目标数组</param>
+            <param name="len">出队的数据长度</param>
+            <returns></returns>
+        </member>
+        <member name="M:JYUSB61902.CircularBufferList`1.Dequeue(System.IntPtr,System.Int32,System.Int32)">
+            <summary>
+            数据出队，带目标数组的开始索引
+            </summary>
+            <param name="retBufferPtr">请求出队的目标数组地址</param>
+            <param name="dstIdx">目标数组的开始索引（以元素为单位，非字节）</param>
+            <param name="len">出队的数据长度（以元素为单位，非字节）</param>
+            <returns></returns>
+        </member>
+        <member name="T:JYUSB61902.JYUSB61902Device">
+            <summary>
+            定义JYUSB61902Device专用的函数和与器件相关的常量
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.JYUSB61902Device.CardType">
+            <summary>
+            卡的类型，在实例化类对象时根据Device model初始化为对应的类型
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.JYUSB61902Device.BoardClkRate">
+            <summary>
+            板载时钟
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.JYUSB61902Device.DiffChannelCount">
+            <summary>
+            差分或伪差分通道数
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.JYUSB61902Device.SEChannelCount">
+            <summary>
+            单端或伪单端通道数
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.JYUSB61902Device.MaxSampleRateSingleChannel">
+            <summary>
+            单通道最大采样率
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.JYUSB61902Device.IsAISync">
+            <summary>
+            是否是同步采集卡
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.JYUSB61902Device.AOChannelCount">
+            <summary>
+            AO通道数
+            </summary>   
+        </member>
+        <member name="P:JYUSB61902.JYUSB61902Device.MaxUpdateRateSingleChannel">
+            <summary>
+            单通道最大更新率
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.JYUSB61902Device.IsAOSync">
+            <summary>
+            AO输出是否是同步
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYUSB61902Device._cardnumber">
+            <summary>
+            板卡编号，构造此类对象时的入参
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYUSB61902Device._listThisInst">
+            <summary>
+            用于保存每个cardnumber构造出的实例
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYUSB61902Device._cardID">
+            <summary>
+            调用Register后得到的cardID
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.JYUSB61902Device.AIDBFBlockSize">
+            <summary>
+            AI double buffer缓冲区的blocksize
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.JYUSB61902Device.AINDBFBlockSize">
+            <summary>
+            AI non double buffer缓冲区的blocksize
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.JYUSB61902Device.AIReserved">
+            <summary>
+            AI是否已经占用的标志
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.JYUSB61902Device.AODBFBlockSize">
+            <summary>
+            AO double buffer 缓冲区的块大小
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.JYUSB61902Device.AONDBFBlockSize">
+            <summary>
+            AO none double buffer 缓冲区的块大小
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.JYUSB61902Device.AOReserved">
+            <summary>
+            AO是否占用的标志
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYUSB61902Device.DILineReserved">
+            <summary>
+            DI端口及其线是否被占用
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYUSB61902Device.DOLineReserved">
+            <summary>
+            DO端口及其线是否被占用
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYUSB61902Device.TimerReserved">
+            <summary>
+            定时器占用情况，
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYUSB61902Device.wPart1Cfg">
+            <summary>
+            GPIO资源配置1
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYUSB61902Device.wPart2Cfg">
+            <summary>
+            GPIO资源配置2
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902Device.GetInstance(System.UInt16)">
+            <summary>
+            根据board number获取操作实例,保证每张板卡只有一个注册实例
+            </summary>
+            <param name="cardNum"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902Device.#ctor(System.UInt16)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902Device.Release">
+            <summary>
+            关闭AD设备,禁止传输,并释放资源，该函数自动在类的析构函数中执行
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902Device.Finalize">
+            <summary>
+            析构函数，释放硬件资源
+            </summary>
+        </member>
+        <member name="T:JYUSB61902.JYUSB61902AITask">
+            <summary>
+            AI采集任务类
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902AITask.#ctor(System.Int32)">
+            <summary>
+            JYUSB61902AITask构造函数
+            </summary>
+            <param name="boardNum">板卡编号</param>
+        </member>
+        <member name="F:JYUSB61902.JYUSB61902AITask._devHandle">
+            <summary>
+            操作硬件的对象
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYUSB61902AITask._doubleBufferLength">
+            <summary>
+            100ms
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYUSB61902AITask._aiStarted">
+            <summary>
+            AI是否已启动
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYUSB61902AITask._localBuffer">
+            <summary>
+            本地缓冲内存
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYUSB61902AITask._localPreviewBuffer">
+            <summary>
+            流盘预览缓冲内存
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYUSB61902AITask._previewBufferLock">
+            <summary>
+            流盘预览缓冲区锁
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYUSB61902AITask._previewDataConvertBuffer">
+            <summary>
+            流盘预览缓冲转换前的数组
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYUSB61902AITask._recordBlockSize">
+            <summary>
+            流盘块大小
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYUSB61902AITask._thdAcquireData">
+            <summary>
+            取数据的线程
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYUSB61902AITask._thdWriteDataFile">
+            <summary>
+            取数据的线程
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYUSB61902AITask._threadException">
+            <summary>
+            线程抛出的异常管理
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYUSB61902AITask._taskDone">
+            <summary>
+            任务结束标志 
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYUSB61902AITask._channelsArray">
+            <summary>
+            通道数组，申明了N个固定的数组，有多少个通道对应使用哪一个一维数组
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.JYUSB61902AITask._rangesArray">
+            <summary>
+            量程数组
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYUSB61902AITask._channelValuesArray">
+            <summary>
+            单通道Value的数组
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYUSB61902AITask._waitUntilDoneEvent">
+            <summary>
+            WaitUntilDone等待事件
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYUSB61902AITask._enableAIDbfMode">
+            <summary>
+            AI是否使能了Double Buffer模式
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYUSB61902AITask._AIDoubleBuffSize">
+            <summary>
+            AI硬件双缓冲区的大小
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYUSB61902AITask._AIReadbuffer_alignment">
+            <summary>
+            AI读缓冲区（对齐地址）
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYUSB61902AITask._AIReadbuffer">
+            <summary>
+            AI读缓冲区（非对齐地址）
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYUSB61902AITask._waitLock">
+            <summary>
+            等待锁, 用于限制多线程并行读操作. 需要等一个线程读取完成后, 另一个线程才能读(排队).
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.JYUSB61902AITask.EventQueue">
+            <summary>
+            事件队列。调用WaitUntilDone()或者ReadBuffer()时，使用事件通知方式，提高效率。
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYUSB61902AITask._isOverflow">
+            <summary>
+            缓冲区是否溢出标志
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYUSB61902AITask._readyCount">
+            <summary>
+            用于有限次重触发，读取缓冲区数据的offset标记
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYUSB61902AITask._enableRetrigger">
+            <summary>
+            是否使能重触发
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYUSB61902AITask._recordedLength">
+            <summary>
+            已经流盘的采样点数
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYUSB61902AITask._recordDone">
+            <summary>
+            流盘是否完成
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYUSB61902AITask._finiteRetriggerFetchSamples">
+            <summary>
+            有限次重触发时FetchBuffer共采集的点数
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYUSB61902AITask._bufferLenSetByUser">
+            <summary>
+            用于标志用户是否设置过BufLenInSamples变量
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYUSB61902AITask._fs">
+            <summary>
+            FileStream对象
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYUSB61902AITask._wt">
+            <summary>
+            写二进制对象
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.JYUSB61902AITask.Channels">
+            <summary>
+            通道列表，16个单端或8个伪差分。
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.JYUSB61902AITask.Mode">
+            <summary>
+            采集模式，支持Single/Finite/Continuous三种类型
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.JYUSB61902AITask.SampleRate">
+            <summary>
+            每通道采样率,单通道时最大采样率为250K,多通道（N）时为250K/N
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.JYUSB61902AITask.SamplesToAcquire">
+            <summary>
+            有限点采集时, 每通道采集的样点数。若设置为小于0，则采集无穷个点。
+            <para>默认值为1024</para>
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.JYUSB61902AITask.BufLenInSamples">
+            <summary>
+            缓冲区能容纳的每通道样点数。一次读取的样点数不能超过此容量。        
+            <remarks>在调用 Start() 方法后分配或者调整缓冲区。</remarks>
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.JYUSB61902AITask.AvailableSamples">
+            <summary>
+            缓冲区内可以读取的点数
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.JYUSB61902AITask.ClockSource">
+            <summary>
+            时钟源,需要根据不同厂商驱动的规定去修改EnumClkSrc枚举
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.JYUSB61902AITask.ClockEdge">
+            <summary>
+            时钟沿。仅在外部时钟时有效。
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.JYUSB61902AITask.Trigger">
+            <summary>
+            AI触发参数设置
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.JYUSB61902AITask.Record">
+            <summary>
+            流盘相关参数设置
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.JYUSB61902AITask.Advanced">
+            <summary>
+            AI高级参数设置
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902AITask.AddChannel(System.Int32,System.Double,System.Double,JYUSB61902.AITerminal)">
+            <summary>
+            添加通道
+            </summary>
+            <param name="chnId">通道物理序号,单端0-15，差分0-7，chnId=-1时添加所有通道</param>
+            <param name="rangeLow">通道量程下限，-10V,-2V,-1V,-0.2V</param>
+            <param name="rangeHigh">通道量程上限,10V,2V,1V,0.2V</param>
+            <param name="terminalCfg">端口输入模式配置,可选择项为NRSE(非参考单端），RSE(参考单端）和preudodifferential(伪差分），默认为NRSE</param>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902AITask.AddChannel(System.Int32[],System.Double,System.Double,JYUSB61902.AITerminal)">
+            <summary>
+            添加多通道
+            </summary>
+            <param name="chnsId">要添加通道的所有物理序号</param>
+            <param name="rangeLow">通道量程下限，最低为-10V,-2V,-1V,-0.2V</param>
+            <param name="rangeHigh">通道量程上限，最高为10V,2V,1V,0.2V</param>
+            <param name="terminalCfg">端口输入模式配置，可选择项为NRSE(非参考单端），RSE(参考单端）和preudodifferential(伪差分），默认为NRSE</param>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902AITask.AddChannel(System.Int32[],System.Double[],System.Double[],JYUSB61902.AITerminal)">
+            <summary>
+            添加多通道,每通道量程可设置不同
+            </summary>
+            <param name="chnsId">要添加通道的所有物理序号</param>
+            <param name="rangeLow">保存各通道量程下限的数组，通道量程下限,最低位-10V,-2V,-1V,-0.2V</param>
+            <param name="rangeHigh">保存各通道量程上限的数组，通道量程上限,最高为10V,2V,1V,0.2V</param>
+            <param name="terminalCfg">端口输入模式配置,可选择项为NRSE(非参考单端），RSE(参考单端）和preudodifferential(伪差分），默认为NRSE</param>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902AITask.RemoveChannel(System.Int32)">
+            <summary>
+            删除指定通道号的通道,为-1则删除所有通道
+            </summary>
+            <param name="chnId">要删除的通道的通道号</param>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902AITask.ReadData(System.IntPtr,System.Int32,System.Int32)">
+             <summary>
+             读取数据，按列返回采集到的电压值
+             </summary>
+            <param name="buf">保存数据的缓存</param> 
+             <param name="samplesPerChannel">每通道待读取的采样点数</param>
+             <param name="timeout">当数据不足时，最多等待的时间（单位：ms），为-1时持续等待</param>   
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902AITask.ReadData(System.Double[0:,0:]@,System.Int32,System.Int32)">
+             <summary>
+             读取数据，按列返回采集到的电压值
+             </summary>
+            <param name="buf">保存数据的缓存</param> 
+             <param name="samplesPerChannel">每通道待读取的采样点数</param>
+             <param name="timeout">当数据不足时，最多等待的时间（单位：ms），为-1时持续等待</param>   
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902AITask.ReadData(System.Double[0:,0:]@,System.Int32)">
+            <summary>
+            重载函数，采样点数默认为数组的行数
+            </summary>
+            <param name="buf">用户缓冲区数组</param>
+            <param name="timeout">当数据不足时，最多等待的时间（单位：ms）</param>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902AITask.ReadData(System.Double[]@,System.Int32,System.Int32)">
+            <summary>
+            读取数据，按列返回采集到的电压值
+            </summary>
+            <param name="buf">用户缓冲区数组</param>
+            <param name="samplesPerChannel">用户缓冲区能容纳的每通道样点数</param>
+            <param name="timeout">当数据不足时，最多等待的时间（单位：ms）</param>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902AITask.ReadData(System.Double[]@,System.Int32)">
+            <summary>
+            重载函数，按数组长度推算读取数据点数 
+            </summary>
+            <param name="buf">用户缓冲区数组</param>
+            <param name="timeout">当数据不足时，最多等待的时间（单位：ms）</param>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902AITask.ReadRawData(System.IntPtr,System.Int32,System.Int32)">
+            <summary>
+            读取数据，按列返回采集到的电压值,返回单通道的数据
+            </summary>
+            <param name="buf">用户缓冲区数组</param>
+            <param name="samplesPerChannel">用户缓冲区能容纳的每通道样点数</param>
+            <param name="timeout">当数据不足时，最多等待的时间（单位：ms）</param>  
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902AITask.ReadRawData(System.Int16[0:,0:]@,System.Int32,System.Int32)">
+            <summary>
+            读取数据，按列返回采集到的电压值,返回单通道的数据
+            </summary>
+            <param name="buf">用户缓冲区数组</param>
+            <param name="samplesPerChannel">用户缓冲区能容纳的每通道样点数</param>
+            <param name="timeout">当数据不足时，最多等待的时间（单位：ms）</param>  
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902AITask.ReadRawData(System.Int16[0:,0:]@,System.Int32)">
+            <summary>
+            重载函数，读取数组行数个点
+            </summary>
+            <param name="buf">用户缓冲区数组</param>
+            <param name="timeout">当数据不足时，最多等待的时间（单位：ms）</param>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902AITask.ReadRawData(System.Int16[]@,System.Int32,System.Int32)">
+            <summary>
+            读取数据，按列返回采集到的电压值
+            </summary>
+            <param name="buf">用户缓冲区数组</param>
+            <param name="samplesPerChannel">用户缓冲区能容纳的每通道样点数</param>
+            <param name="timeout">当数据不足时，最多等待的时间（单位：ms）</param>  
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902AITask.ReadRawData(System.Int16[]@,System.Int32)">
+            <summary>
+            重载函数，按数组长度读取数据点数
+            </summary>
+            <param name="buf">用户缓冲区数组</param>
+            <param name="timeout">当数据不足时，最多等待的时间（单位：ms）</param>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902AITask.GetRecordPreviewData(System.Double[0:,0:]@,System.Int32)">
+            <summary>
+            获取流盘时预览的数据
+            </summary>
+            <param name="buf">用户定义返回数据的缓冲区</param>
+            <param name="timeout">超时时间，单位ms，-1为无限等待</param>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902AITask.GetRecordPreviewData(System.Double[]@,System.Int32)">
+            <summary>
+            获取流盘时预览的数据
+            </summary>
+            <param name="buf">用户定义返回数据的缓冲区</param>
+            <param name="timeout">超时时间，单位ms，-1为无限等待</param>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902AITask.GetRecordPreviewData(System.Double[]@,System.Int32,System.Int32)">
+            <summary>
+            获取流盘时预览的数据
+            </summary>
+            <param name="buf">用户定义返回数据的缓冲区</param>
+            <param name="samplesPerChannel">每通道要取的数据</param>
+            <param name="timeout">超时时间，单位ms，-1为无限等待</param>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902AITask.ReadSinglePoint(System.Double[]@)">
+            <summary>
+            每通道读取一个样点，非缓冲式读取。返回应用变换系数变换后的数据。
+            </summary>
+            <param name="buffer">用户缓冲区数组</param>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902AITask.ReadSinglePoint(System.Double@)">
+            <summary>
+            单通道读取一个样点，非缓冲式读取。返回应用变换系数变换后的数据。
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902AITask.GetRecordStatus(System.Double@,System.Boolean@)">
+            <summary>
+            获取流盘状态
+            </summary>
+            <param name="recordedLength">已流盘的长度</param>
+            <param name="recordDone">流盘是否结束</param>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902AITask.WaitUntilDone(System.Int32)">
+            <summary>
+            等待当前任务完成
+            </summary>
+            <param name="timeout">等待的时间(单位:ms) </param>
+            <returns>true:任务结束,false:超时</returns>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902AITask.Start">
+            <summary>
+            启动AI任务
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902AITask.Stop">
+            <summary>
+            停止AI任务
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902AITask.Finalize">
+            <summary>
+            析构函数
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902AITask.ThdAcquireData">
+            <summary>
+            从缓冲区取数据的线程函数
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902AITask.ThdWriteDataFile">
+            <summary>
+            从缓冲区取数据的线程函数
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902AITask.EnQueueElems(System.Int16[])">
+            <summary>
+            数据放入队列尾部
+            </summary>
+            <param name="buffer">入队数据</param>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902AITask.GetRecordPreviewData(System.Double[0:,0:]@,System.Int32,System.Int32)">
+            <summary>
+            获取流盘时预览的数据
+            </summary>
+            <param name="buf">用户定义返回数据的缓冲区</param>
+            <param name="samplesPerChannel">每通道要取的数据</param>
+            <param name="timeout">超时时间，单位ms，-1为无限等待</param>
+            <returns></returns>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902AITask.ActivateWaitEvents">
+            <summary>
+            激活等待事件
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902AITask.CreateRecordFile">
+            <summary>
+            创建流盘文件
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902AITask.WriteDataToFile(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            数据写入流盘文件
+            </summary>
+            <param name="data"></param>
+            <param name="index"></param>
+            <param name="count"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902AITask.CloseRecordFile">
+            <summary>
+            关闭流盘文件
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902AITask.GetVendorRange(System.Double,System.Double)">
+            <summary>
+            根据输入范围匹配一个原厂驱动的Range值
+            </summary>
+            <param name="rangeLow">输入下限</param>
+            <param name="rangeHigh">输入上限</param>
+            <returns>
+            小于0：错误
+            大于0：原厂驱动的Range
+            </returns>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902AITask.FullRange(System.Int32)">
+            <summary>
+            根据原厂驱动Range查询出真实的电压值
+            </summary>
+            <param name="AD_Range">原厂驱动的Range</param>
+            <returns>真实的电压范围</returns>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902AITask.AIConfig">
+            <summary>
+            AI相关的配置，调用原厂Config函数进行配置
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902AITask.ScaleRawData(System.Int16[0:,0:],System.Double[],System.Int32,System.UInt16[])">
+            <summary>
+            对原始数据RawData进行Scale转换
+            </summary>
+            <param name="rawData">原始数据</param>
+            <param name="scaledData">Scale后的数据</param>
+            <param name="samples">采集到点数</param>
+            <param name="scaleRange">需要scale的range</param>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902AITask.ScaleRawData(System.IntPtr,System.IntPtr,System.Int32)">
+            <summary>
+            对原始数据RawData进行Scale转换
+            </summary>
+            <param name="rawData">原始数据</param>
+            <param name="scaledData">Scale后的数据</param>
+            <param name="samples">采集到的点数</param>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902AITask.ScaleRawData(System.Int16[0:,0:],System.Double[0:,0:],System.Int32,System.UInt16[])">
+            <summary>
+            对原始数据RawData进行Scale转换
+            </summary>
+            <param name="rawData">原始数据</param>
+            <param name="scaledData">Scale后的数据</param>
+            <param name="samples">采集到的点数</param>
+            <param name="scaleRange">需要scale的range</param>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902AITask.GetChannelArray">
+            <summary>
+            获取当前添加通道的数组
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902AITask.GetRangeArray">
+            <summary>
+            获取当前添加通道的数组
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902AITask.GetNearestOfMBlocksize(System.UInt32,System.UInt32)">
+            <summary>
+            获取里requestsize最近的Blocksize的整数倍的数
+            </summary>
+            <param name="requestSize"></param>
+            <param name="blockSize"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902AITask.GetNearest2N(System.UInt32)">
+            <summary>
+            取大于输入整数a的2的N方的数
+            </summary>
+            <param name="a"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902AITask.ConfigContAcq">
+            <summary>
+            连续采集配置
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902AITask.FetchBuffer(System.Int16[]@,System.Boolean@)">
+            <summary>
+            从本地缓冲区中取采集的数据(取到的数据，多个通道是interleaved的)
+            </summary>
+            <param name="stopped">停止线程标志</param>
+            <param name="retbuffer"></param>
+            <returns>
+            小于0：失败，具体看错误代码
+            大于0：成功，值代表每通道返回的样点数
+            </returns>
+        </member>
+        <member name="T:JYUSB61902.AIChannel">
+            <summary>
+            AI通道参数类
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.AIChannel.ChannelID">
+            <summary>
+            通道号。与AI通道的物理序号相对应。
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.AIChannel.RangeLow">
+            <summary>
+            通道量程下限，-10V,-2V,-1V,-0.2V
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.AIChannel.RangeHigh">
+            <summary>
+            通道量程上限，10V,2V,1V,0.2V
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.AIChannel.Terminal">
+            <summary>
+            端口模式配置
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.AIChannel.#ctor(System.Int32,System.Double,System.Double,JYUSB61902.AITerminal)">
+            <summary>
+            构造函数，创建AIChnParam对象
+            </summary>
+            <param name="channelId">通道物理序号</param>
+            <param name="rangeLow">通道量程下限</param>
+            <param name="rangeHigh">通道量程上限</param>
+            <param name="terminalCfg">输入配置方式</param>
+        </member>
+        <member name="T:JYUSB61902.AITriggerType">
+            <summary>
+            触发类型 Digital/Analog/Internal/Immediate
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.AITriggerType.Digital">
+            <summary>
+            数字触发
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.AITriggerType.Analog">
+            <summary>
+            模拟触发
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.AITriggerType.Immediate">
+            <summary>
+            无触发
+            </summary>
+        </member>
+        <member name="T:JYUSB61902.AIClockEdge">
+            <summary>
+            AI时钟沿类型
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.AIClockEdge.Rising">
+            <summary>
+            上升沿
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.AIClockEdge.Falling">
+            <summary>
+            下降沿
+            </summary>
+        </member>
+        <member name="T:JYUSB61902.AITriggerGate">
+            <summary>
+            Gate触发类型
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.AITriggerGate.HighActive">
+            <summary>
+            触发信号为高电平，暂停信号的采集
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.AITriggerGate.LowActive">
+            <summary>
+            触发信号为低电平，暂停信号的采集
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.AITriggerGate.None">
+            <summary>
+            门触发无效
+            </summary>
+        </member>
+        <member name="T:JYUSB61902.AIDigitalTriggerEdge">
+            <summary>
+            AI触发沿类型
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.AIDigitalTriggerEdge.Rising">
+            <summary>
+            上升沿
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.AIDigitalTriggerEdge.Falling">
+            <summary>
+            下降沿
+            </summary>
+        </member>
+        <member name="T:JYUSB61902.AIAnalogTriggerCondition">
+            <summary>
+            模拟触发的触发条件
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.AIAnalogTriggerCondition.AboveLevel">
+            <summary>
+            高于阈值触发
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.AIAnalogTriggerCondition.BelowLevel">
+            <summary>
+            低于阈值触发
+            </summary>
+        </member>
+        <member name="T:JYUSB61902.AIMode">
+            <summary>
+            AI工作模式枚举类型
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.AIMode.Single">
+            <summary>
+            单点模式
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.AIMode.Finite">
+            <summary>
+            有限点模式
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.AIMode.Continuous">
+            <summary>
+            连续模式
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.AIMode.Record">
+            <summary>
+            连续流盘模式
+            </summary>
+        </member>
+        <member name="T:JYUSB61902.AITerminal">
+            <summary>
+            输入配置枚举类型
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.AITerminal.RSE">
+            <summary>
+            参考单端模式
+             </summary>
+        </member>
+        <member name="F:JYUSB61902.AITerminal.NRSE">
+            <summary>
+            非参考单端模式
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.AITerminal.Pseudodifferential">
+            <summary>
+            伪差分模式
+            </summary>
+        </member>
+        <member name="T:JYUSB61902.AIClockSource">
+            <summary>
+            时钟源类型
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.AIClockSource.Internal">
+            <summary>
+            内部时钟源
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.AIClockSource.External">
+            <summary>
+            外部时钟源
+            </summary>
+        </member>
+        <member name="T:JYUSB61902.AITrigger">
+            <summary>
+            设置触发参数
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.AITrigger.Type">
+            <summary>
+            触发类型，包括：Immediate/Digital/Analog
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.AITrigger.Digital">
+            <summary>
+            数字触发设置
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.AITrigger.Analog">
+            <summary>
+            模拟触发设置
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.AITrigger.ReTriggerCount">
+            <summary>
+            重复触发设置,为0时不重复触发，>0时为重复触发次数，为-1时无限触发
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.AITrigger.Delay">
+            <summary>
+            <para>延迟触发模式下有效，单位:us，最长延迟时间为18626</para>
+            <para>数字触发的Gate模式下忽略</para>
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.AITrigger.#ctor(JYUSB61902.AITriggerType,JYUSB61902.AITriggerGate,System.Int32,System.UInt32)">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="T:JYUSB61902.AIAnalogTriggerSource">
+            <summary>
+            AI模拟触发源定义
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.AIAnalogTriggerSource.CH0">
+            <summary>
+            通道0模拟触发
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.AIAnalogTriggerSource.CH1">
+            <summary>
+            通道1模拟触发
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.AIAnalogTriggerSource.CH2">
+            <summary>
+            通道2模拟触发
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.AIAnalogTriggerSource.CH3">
+            <summary>
+            通道3模拟触发
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.AIAnalogTriggerSource.CH4">
+            <summary>
+            通道4模拟触发
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.AIAnalogTriggerSource.CH5">
+            <summary>
+            通道5模拟触发
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.AIAnalogTriggerSource.CH6">
+            <summary>
+            通道6模拟触发
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.AIAnalogTriggerSource.CH7">
+            <summary>
+            通道7模拟触发
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.AIAnalogTriggerSource.CH8">
+            <summary>
+            通道8模拟触发
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.AIAnalogTriggerSource.CH9">
+            <summary>
+            通道9模拟触发
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.AIAnalogTriggerSource.CH10">
+            <summary>
+            通道10模拟触发
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.AIAnalogTriggerSource.CH11">
+            <summary>
+            通道12模拟触发
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.AIAnalogTriggerSource.CH12">
+            <summary>
+            通道12模拟触发
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.AIAnalogTriggerSource.CH13">
+            <summary>
+            通道13模拟触发
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.AIAnalogTriggerSource.CH14">
+            <summary>
+            通道14模拟触发
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.AIAnalogTriggerSource.CH15">
+            <summary>
+            通道15模拟触发
+            </summary>
+        </member>
+        <member name="T:JYUSB61902.AIDigitalTriggerSource">
+            <summary>
+            AI数字触发源定义
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.AIDigitalTriggerSource.AITG">
+            <summary>
+            外部触发源
+            </summary>
+        </member>
+        <member name="T:JYUSB61902.AIDigitalTrigger">
+            <summary>
+            AI数字触发设置参数定义
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.AIDigitalTrigger.Source">
+            <summary>
+            触发源
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.AIDigitalTrigger.Edge">
+            <summary>
+            数字触发边沿类型，Rising/Falling
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.AIDigitalTrigger.Gate">
+            <summary>
+            Gate
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.AIDigitalTrigger.#ctor(JYUSB61902.AIDigitalTriggerEdge,JYUSB61902.AITriggerGate)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="edge"></param>
+            <param name="gate"></param>
+        </member>
+        <member name="T:JYUSB61902.AIAnalogTrigger">
+            <summary>
+            AI模拟触发设置参数定义
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.AIAnalogTrigger.Source">
+            <summary>
+            触发源，根据USB1902的定义包括CH0，CH1，CH2，CH3，CH4,CH5，CH6，CH7，CH8，CH9，CH10，CH11，CH12，CH13，CH14，CH15，当触发源为AITG时不用设置
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.AIAnalogTrigger.Condition">
+            <summary>
+            Above/Below
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.AIAnalogTrigger.Level">
+            <summary>
+            触发门限，Level值不超过通道量程限制
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.AIAnalogTrigger.#ctor(JYUSB61902.AIAnalogTriggerSource,JYUSB61902.AIAnalogTriggerCondition,System.Double)">
+            <summary>
+            默认的模拟触发参数:
+            触发源---外部触发通道
+            触发条件---Above(超过高阈值)
+            阈值---0.1V
+            </summary>
+        </member>
+        <member name="T:JYUSB61902.AIRecord">
+            <summary>
+            流盘相关的参数定义
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.AIRecord.FilePath">
+            <summary>
+            流盘文件的路径，绝对路径，包含文件名
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.AIRecord.FileFormat">
+            <summary>
+            流盘文件格式
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.AIRecord.Mode">
+            <summary>
+            流盘模式
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.AIRecord.Length">
+            <summary>
+            流盘时间长度，单位为秒，当Mode为Finite时有效
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.AIRecord.#ctor">
+            <summary>
+            默认构造函数
+            </summary>
+        </member>
+        <member name="T:JYUSB61902.FileFormat">
+            <summary>
+            流盘文件格式枚举定义
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.FileFormat.Bin">
+            <summary>
+            二进制文件格式
+            </summary>
+        </member>
+        <member name="T:JYUSB61902.RecordMode">
+            <summary>
+            流盘模式枚举定义
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.RecordMode.Finite">
+            <summary>
+            有限长度流盘
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.RecordMode.Infinite">
+            <summary>
+            无限长度流盘
+            </summary>
+        </member>
+        <member name="T:JYUSB61902.AIAdvanced">
+            <summary>
+            AI高级参数设置
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.AIAdvanced.SamplingInterval">
+            <summary>
+            <para>the sampling Interval of each channel,</para>
+            <para>Max=1.0/SampleRate/NumberOfChannel</para>
+            <para>Min = 4us(when internal clock, if external clock min is 160/clockRate</para>
+            </summary>
+        </member>
+        <member name="T:JYUSB61902.JYUSB61902AOTask">
+            <summary>
+            AO输出任务类
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902AOTask.#ctor(System.Int32)">
+            <summary>
+            JYUSB61902AOTask构造函数
+            </summary>
+            <param name="boardNum">板卡编号</param>
+        </member>
+        <member name="F:JYUSB61902.JYUSB61902AOTask._devHandle">
+            <summary>
+            操作硬件的对象
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYUSB61902AOTask._aoStarted">
+            <summary>
+            AO是否已启动标志
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYUSB61902AOTask._localBuffer">
+            <summary>
+            本地缓冲队列
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYUSB61902AOTask._thdWriteData">
+            <summary>
+            后台写硬件缓冲区线程
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYUSB61902AOTask._taskDone">
+            <summary>
+            任务结束标志 
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYUSB61902AOTask._waitUntilDoneEvent">
+            <summary>
+            WaitUntilDone等待事件
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYUSB61902AOTask._enableAODbfMode">
+            <summary>
+            AI是否使能了Double Buffer模式
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYUSB61902AOTask._enableAORetrigger">
+            <summary>
+            使能AO重触发
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYUSB61902AOTask._enableHardwareWrapping">
+            <summary>
+            硬件是否使能Wrapping
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYUSB61902AOTask._AODoubleBuffSize">
+            <summary>
+            AI硬件双缓冲区的大小
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYUSB61902AOTask._AOScanInterval">
+            <summary>
+            AO扫描间隔
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYUSB61902AOTask._AOSampleInterval">
+            <summary>
+            AO采样间隔
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYUSB61902AOTask._aoWritebufIdx">
+            <summary>
+            AO写缓冲区的索引号
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYUSB61902AOTask._AOWriteBuffer">
+            <summary>
+            AO缓冲区
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYUSB61902AOTask._samplesWrittenPerChannel">
+            <summary>
+            每通道写入到硬件缓冲区的点数
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYUSB61902AOTask._startedLock">
+            <summary>
+            等待锁, 用于限制多线程并行写操作. 需要等一个线程读取完成后, 另一个线程才能读(排队).
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYUSB61902AOTask._waitLock">
+            <summary>
+            等待锁, 用于限制多线程并行写操作. 需要等一个线程写入完成后, 另一个线程才能写(排队).
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.JYUSB61902AOTask.EventQueue">
+            <summary>
+            事件队列。调用WaitUntilDone()或者ReadBuffer()时，使用事件通知方式，提高效率。
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYUSB61902AOTask._isUnderflow">
+            <summary>
+            缓冲区下溢出标志
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYUSB61902AOTask._firstWriteSamples">
+            <summary>
+            NoWrapping模式下第一次写入的数据点数至少是30K
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYUSB61902AOTask._doublebufferSizeMin">
+            <summary>
+            NoWrapping模式时，最小的DoubleBuffer
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYUSB61902AOTask._bufferLenSetByUser">
+            <summary>
+            用于标志用户是否设置过BufLenInSamples变量
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYUSB61902AOTask._threadException">
+            <summary>
+            线程抛出的异常管理
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.JYUSB61902AOTask.Channels">
+            <summary>
+            初始化通道数,(0，1共2个通道)
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.JYUSB61902AOTask.Mode">
+            <summary>
+            输出模式，支持Single/Finite/ContinuousNoWrapping/ContinuousWrappingSingle四种类型
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.JYUSB61902AOTask.UpdateRate">
+            <summary>
+            每通道更新速率，最大更新速率为1M
+            </summary>
+            <remarks>若硬件不支持硬件定时，则忽略设置的速率值</remarks>
+        </member>
+        <member name="P:JYUSB61902.JYUSB61902AOTask.SamplesToUpdate">
+            <summary>
+            每通道更新点数，在有限点模式下有效
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.JYUSB61902AOTask.BufLenInSamples">
+            <summary>
+            缓冲区能容纳的每通道样点数。一次读取的样点数不能超过此容量。        
+            <remarks>在调用 Start() 方法后分配或者调整缓冲区。</remarks>
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.JYUSB61902AOTask.AvaliableLenInSamples">
+            <summary>
+            本地缓冲区当前每通道可容纳的样点数（当前每通道可写入缓冲区的样点数）
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.JYUSB61902AOTask.WrappingInterval">
+            <summary>
+            Wrapping模式中，每一帧波形之间的间隔，单位us。输出点数为512的整数倍时有效
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.JYUSB61902AOTask.ClockSource">
+            <summary>
+            时钟源，可选择项为Internal和External
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.JYUSB61902AOTask.ClockEdge">
+            <summary>
+            时钟沿。仅在外部时钟时有效。可选择项为Falling和Rising
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.JYUSB61902AOTask.Trigger">
+            <summary>
+            AO触发参数配置
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902AOTask.AddChannel(System.Int32,System.Double,System.Double)">
+            <summary>
+            添加单通道(chnId=-1时添加所有通道)
+            </summary>
+            <param name="chnId">通道物理序号（0，1共两个），chnId=-1时添加所有通道</param>
+            <param name="rangeLow">通道量程下限（-10V）</param>
+            <param name="rangeHigh">通道量程上限（10V）</param>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902AOTask.AddChannel(System.Int32[],System.Double,System.Double)">
+            <summary>
+            添加多通道
+            </summary>
+            <param name="chnsId">保存待添加通道号的数组</param>
+            <param name="rangeLow">通道量程下限（-10V）</param>
+            <param name="rangeHigh">通道量程上限（10V）</param>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902AOTask.RemoveChannel(System.Int32)">
+            <summary>
+            删除指定通道号的通道，(chnId=-1时删除所有通道)
+            </summary>
+            <param name="chnId">要删除的通道的通道号（0，1共两个），-1删除所有通道</param>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902AOTask.WriteData(System.IntPtr,System.Int32,System.Int32)">
+            <summary>
+            将数据写入到缓冲区，多通道数据写入
+            </summary>
+            <param name="buf">数据写入的缓存，每通道写入样点数等于数组的行数</param>
+            <param name="samplesToWrite">每通道要写入的点数</param>
+            <param name="timeout">当数据不足时，等待的超时时间（单位：ms），为-1时持续等待。</param> 
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902AOTask.WriteData(System.Double[0:,0:],System.Int32)">
+            <summary>
+            将数据写入到缓冲区，多通道数据写入
+            </summary>
+            <param name="buf">数据写入的缓存，每通道写入样点数等于数组的行数</param>
+            <param name="timeout">当数据不足时，等待的超时时间（单位：ms），为-1时持续等待。</param> 
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902AOTask.WriteData(System.Double[],System.Int32)">
+            <summary>
+            将数据写入到缓冲区
+            </summary>
+            <param name="buf">数据写入的缓存，每通道写入的样点数等于buf.Length/通道总数</param>
+            <param name="timeout">当数据不足时，等待的超时时间（单位：ms），为-1时持续等待。</param> 
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902AOTask.WriteRawData(System.IntPtr,System.Int32,System.Int32)">
+            <summary>
+            写入原始数据
+            </summary>
+            <param name="buf">数据写入的缓存，每通道写入样点数等于数组的行数</param>
+            <param name="samplesToWrite">每通道要写入的点数</param>
+            <param name="timeout">当数据不足时，等待的超时时间（单位：ms），为-1时持续等待。</param>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902AOTask.WriteRawData(System.Int16[0:,0:],System.Int32)">
+            <summary>
+            写入原始数据
+            </summary>
+            <param name="buf">数据写入的缓存，每通道写入样点数等于数组的行数</param>
+            <param name="timeout">当数据不足时，等待的超时时间（单位：ms），为-1时持续等待。</param>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902AOTask.WriteRawData(System.Int16[],System.Int32)">
+            <summary>
+            写入原始数据
+            </summary>
+            <param name="buf">数据写入的缓存，每通道写入的样点数等于buf.Length/通道总数</param>
+            <param name="timeout">当数据不足时，等待的超时时间（单位：ms），为-1时持续等待。</param>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902AOTask.WriteSinglePoint(System.Double[])">
+            <summary>
+            每通道更新一个点。直接更新，不经过缓冲区。
+            </summary>
+            <param name="buf">数据写入的缓存</param>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902AOTask.WriteSinglePoint(System.Double)">
+            <summary>
+            单通道时，更新一个点。直接更新，不经过缓冲区。
+            </summary>
+            <param name="buf">数据写入的缓存</param>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902AOTask.WaitUntilDone(System.Int32)">
+            <summary>
+            等待当前任务完成
+            </summary>
+            <param name="timeout">当数据不足时，等待的超时时间（单位：ms），为-1时持续等待。等待的时间(单位:ms)</param>
+            
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902AOTask.Start">
+            <summary>
+            启动AO任务
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902AOTask.Stop">
+            <summary>
+            停止AO任务
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902AOTask.Finalize">
+            <summary>
+            析构函数
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902AOTask.ThdWriteData">
+            <summary>
+            将本地缓冲区的数据写入到硬件
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902AOTask.WriteBuffer(System.UInt16[])">
+            <summary>
+            写缓冲区
+            </summary>
+            <param name="aobuffer"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902AOTask.ActivateWaitEvents">
+            <summary>
+            激活等待事件
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902AOTask.GetVendorRange(System.Double,System.Double)">
+            <summary>
+            根据输入范围匹配一个原厂驱动的Range值
+            </summary>
+            <param name="rangeLow">输入下限(-10V)</param>
+            <param name="rangeHigh">输入上限(10V)</param>
+            <returns>
+            小于0：错误
+            大于0：实际的Range
+            </returns>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902AOTask.AOConfig">
+            <summary>
+            配置AO的触发及时钟属性
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902AOTask.ConfigContAO">
+             <summary>
+            为连续模拟输出设置缓冲区
+             </summary>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902AOTask.GetNearestOfMBlocksize(System.UInt32,System.UInt32)">
+            <summary>
+            获取里requestsize最近的Blocksize的整数倍的数
+            </summary>
+            <param name="requestSize"></param>
+            <param name="blockSize"></param>
+            <returns></returns>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902AOTask.GetChannelArray">
+            <summary>
+            获取当前添加通道的数组
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902AOTask.GetAOState(System.Boolean@)">
+            <summary>
+            取得当前AO更新的状态,half ready 则返回true，有限点完成输出了也返回true
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902AOTask.GetFiniteAOState">
+            <summary>
+            取得当前有限点AO更新的状态,half ready != 0 返回true
+            </summary>
+            <returns>stoped ?</returns>
+        </member>
+        <member name="T:JYUSB61902.AOChannel">
+            <summary>
+            AO通道参数类
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.AOChannel.ChannelID">
+            <summary>
+            通道号(0,1共两个)。与AO通道的物理序号相对应。
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.AOChannel.RangeLow">
+            <summary>
+            通道量程下限（-10V）
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.AOChannel.RangeHigh">
+            <summary>
+            通道量程上限（10V）
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.AOChannel.#ctor(System.Int32,System.Double,System.Double)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="channelId">通道物理序号(0，1共两个)</param>
+            <param name="rangeLow">通道量程下限（-10V）</param>
+            <param name="rangeHigh">通道量程上限（10V）</param>
+        </member>
+        <member name="T:JYUSB61902.AOClockEdge">
+            <summary>
+            信号沿类型
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.AOClockEdge.Rising">
+            <summary>
+            上升沿
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.AOClockEdge.Falling">
+            <summary>
+            下降沿
+            </summary>
+        </member>
+        <member name="T:JYUSB61902.AODigitalTriggerEdge">
+            <summary>
+            触发沿类型
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.AODigitalTriggerEdge.Rising">
+            <summary>
+            上升沿
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.AODigitalTriggerEdge.Falling">
+            <summary>
+            下降沿
+            </summary>
+        </member>
+        <member name="T:JYUSB61902.AODigitalTriggerSource">
+            <summary>
+            触发信号源
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.AODigitalTriggerSource.AOTG">
+            <summary>
+            外部数字触发
+            </summary>
+        </member>
+        <member name="T:JYUSB61902.StatusLock">
+            <summary>
+            状态锁
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.StatusLock.Marked">
+            <summary>
+            状态标记, 默认为未使用
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.StatusLock.Mark">
+            <summary>
+            标记为使用中
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.StatusLock.UnMark">
+            <summary>
+            标记为未使用
+            </summary>
+        </member>
+        <member name="T:JYUSB61902.AOMode">
+            <summary>
+            AO工作模式枚举类型
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.AOMode.Single">
+            <summary>
+            单点模式
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.AOMode.Finite">
+            <summary>
+            有限点模式
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.AOMode.ContinuousNoWrapping">
+            <summary>
+            连续非环绕输出模式
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.AOMode.ContinuousWrapping">
+            <summary>
+            连续环绕输出模式
+            </summary>
+        </member>
+        <member name="T:JYUSB61902.AOClockSource">
+            <summary>
+            时钟源类型
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.AOClockSource.Internal">
+            <summary>
+            内部时钟源
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.AOClockSource.External">
+            <summary>
+            外部时钟源
+            </summary>
+        </member>
+        <member name="T:JYUSB61902.AOTriggerType">
+            <summary>
+            AI触发类型，需要根据板卡的实际支持情况修改
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.AOTriggerType.Immediate">
+            <summary>
+            无触发
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.AOTriggerType.Digital">
+            <summary>
+            数字触发
+            </summary>
+        </member>
+        <member name="T:JYUSB61902.AOTrigger">
+            <summary>
+            AO 触发参数设置类
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.AOTrigger.Type">
+            <summary>
+            触发类型，包括：Immediate/Digital
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.AOTrigger.Digital">
+            <summary>
+            数字触发设置
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.AOTrigger.ReTriggerCount">
+            <summary>
+            重复触发设置,为0时不重复触发，>0时为重复触发次数，为-1时无限次触发。当有限点输出的点数为512的整数倍时，该参数有效
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.AOTrigger.Delay">
+            <summary>
+            触发延迟时间设置，为0时不延迟，>0时为延迟us数，最大延迟时间为186260us；
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.AOTrigger.#ctor(JYUSB61902.AOTriggerType,System.Int32,System.UInt32)">
+            <summary>
+            
+            </summary>
+            <param name="type"></param>
+            <param name="reTriggerCount"></param>
+            <param name="delay"></param>
+        </member>
+        <member name="T:JYUSB61902.AODigitalTrigger">
+            <summary>
+            AO数字触发设置
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.AODigitalTrigger.Source">
+            <summary>
+            触发源
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.AODigitalTrigger.Edge">
+            <summary>
+            数字触发边沿类型，Rising/Falling
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.AODigitalTrigger.#ctor(JYUSB61902.AODigitalTriggerEdge)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="edge">触发沿</param>
+        </member>
+        <member name="T:JYUSB61902.JYUSB61902CITask">
+            <summary>
+            CNT操作任务类
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902CITask.#ctor(System.Int32,System.Int32)">
+            <summary>
+            创建CI任务
+            </summary>
+            <param name="boardNum">板卡编号</param>
+            <param name="chnId">通道编号,0和2有效</param>
+        </member>
+        <member name="P:JYUSB61902.JYUSB61902CITask.Mode">
+            <summary>
+            应用类型，可选计数和测量两种模式
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.JYUSB61902CITask.Counter">
+            <summary>
+            计数器相关参数设置
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.JYUSB61902CITask.Measure">
+            <summary>
+            测量相关参数设置
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYUSB61902CITask._devHandle">
+            <summary>
+            操作硬件的对象
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYUSB61902CITask._channelID">
+            <summary>
+            通道编号，可选择0和2
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYUSB61902CITask._ciStarted">
+            <summary>
+            CI是否已经启动
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902CITask.ReadCounter(System.UInt32@)">
+            <summary>
+            读取计数值(频率值、周期值等)
+            </summary>
+            <param name="buf">读取到的计数值，32位无符号整数</param>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902CITask.ReadMeasure(System.Double@)">
+            <summary>
+            读取测量结果
+            </summary>
+            <param name="buf">读取到的测量值</param>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902CITask.Start">
+            <summary>
+            启动CI任务
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902CITask.Stop">
+            <summary>
+            停止CI任务
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902CITask.ConfigCI">
+            <summary>
+            配置Counter In
+            </summary>
+        </member>
+        <member name="T:JYUSB61902.CountDirection">
+            <summary>
+            计数方向枚举，可选择Up，Down和External
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.CountDirection.Up">
+            <summary>
+            增计数
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.CountDirection.Down">
+            <summary>
+            减计数
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.CountDirection.External">
+            <summary>
+            外部增减计数方向控制引脚决定计数方向
+            </summary>
+        </member>
+        <member name="T:JYUSB61902.CIClockSource">
+            <summary>
+            CI的时钟源枚举，可选择项为Internal和External
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.CIClockSource.Internal">
+            <summary>
+            内部时钟
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.CIClockSource.External">
+            <summary>
+            外部时钟
+            </summary>
+        </member>
+        <member name="T:JYUSB61902.CIGateSource">
+            <summary>
+            CI的Gate源枚举，可选择项为Internal和External
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.CIGateSource.Internal">
+             <summary>
+            内部软件指定
+             </summary>
+        </member>
+        <member name="F:JYUSB61902.CIGateSource.External">
+            <summary>
+            外部Gate引脚
+            </summary>
+        </member>
+        <member name="T:JYUSB61902.CIPolarity">
+            <summary>
+            极性设置枚举，可选择项为LowActive和HighActive
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.CIPolarity.LowActive">
+            <summary>
+            低有效
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.CIPolarity.HighActive">
+            <summary>
+            高有效
+            </summary>
+        </member>
+        <member name="T:JYUSB61902.CIClockEdge">
+            <summary>
+            信号沿类型，可选择项为Rising和Falling
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.CIClockEdge.Rising">
+            <summary>
+            上升沿
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.CIClockEdge.Falling">
+            <summary>
+            下降沿
+            </summary>
+        </member>
+        <member name="T:JYUSB61902.CIMode">
+            <summary>
+            应用类型枚举，计数输入的模式分为计数和测量
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.CIMode.Counter">
+            <summary>
+            简单计数
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.CIMode.Measure">
+            <summary>
+            测量SinglePeriodMSR/SinglePulseWidthMSR/EdgeSeparationMSR
+            </summary>
+        </member>
+        <member name="T:JYUSB61902.MeasureType">
+            <summary>
+            测量类型
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.MeasureType.SinglePeriodMSR">
+            <summary>
+            Gate上信号的单周期测量
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.MeasureType.SinglePulseWidthMSR">
+            <summary>
+            Gate上信号的单脉冲宽度测量
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.MeasureType.EdgeSeparationMSR">
+            <summary>
+            gate 信号和 aux 信号的边沿分离测量
+            </summary>
+        </member>
+        <member name="T:JYUSB61902.Counter">
+            <summary>
+            计数器参数设置类
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.Counter.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.Counter.ClockEdge">
+            <summary>
+            /计数的时钟边沿，可选择项为Rising和Falling
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.Counter.ClockSource">
+            <summary>
+            计数或测量的时钟源选择，可选择项为Internal和External
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.Counter.Direction">
+            <summary>
+            计数器计数方向，可选择项为UP,Down和External
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.Counter.DirectionPolarity">
+            <summary>
+            计数器方向有效电平，可选择项为LowActive和HighActive
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.Counter.GatePolarity">
+            <summary>
+            计数器Gate有效电平，可选择项为LowActive和HighActive
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.Counter.GateSource">
+            <summary>
+            计数器Gate源选择，可选择项为Internal和External
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.Counter.InitialCount">
+            <summary>
+            计数器初始计数值，无符号整数类型
+            </summary>
+        </member>
+        <member name="T:JYUSB61902.Measure">
+            <summary>
+            测量参数配置类
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.Measure.ClockEdge">
+            <summary>
+            测量的时钟边沿，可选择项为Rising和Falling
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.Measure.ClockSource">
+            <summary>
+            测量的时钟源选择，可选择项为Internal和External
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.Measure.ExternalClockRate">
+            <summary>
+            外部时钟的频率,只针对外部时钟有效
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.Measure.Type">
+            <summary>
+            测量类型 ，可选择项为SinglePeriodMSR，SinglePulseWidthMSR，EdgeSeparationMSR
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.Measure.#ctor(JYUSB61902.MeasureType,JYUSB61902.CIClockEdge,JYUSB61902.CIClockSource)">
+            <summary>
+            默认构造函数
+            </summary>
+            <param name=" type">测量类型，可选择项为SinglePeriodMSR，SinglePulseWidthMSR，EdgeSeparationMSR</param> 
+            <param name="edge ">测量时钟边沿，可选择项为Rising和Falling</param> 
+            <param name=" source">测量的时钟源选择，可选择项为Internal和External</param> 
+        </member>
+        <member name="T:JYUSB61902.JYUSB61902COTask">
+            <summary>
+            CO操作任务类
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902COTask.#ctor(System.Int32,System.Int32)">
+            <summary>
+            创建CO任务
+            </summary>
+            <param name="boardNum">设备编号</param>
+            <param name="chnId">需要用于脉冲生成的通道编号，可选择0和2</param>
+        </member>
+        <member name="P:JYUSB61902.JYUSB61902COTask.Mode">
+            <summary>
+            应用类型，有8种模式，可选项为 SingleGatedPulseGen(Gate使能单脉冲生成），SingleTrigPulseGen（触发单脉冲生成）， RetrigSinglePulseGen（重触发单脉冲生成）
+             SingleTrigContPulseGen（触发单脉冲生成），ContGatedPulseGen（Gate使能连续脉冲生成），MultipleGatedPulseGen（多门使能脉冲生成）。SingleTrigContPulseGenPWM（触发连续脉冲PWM连续脉冲生成），
+             ContGatedPulseGenPWM（门使能连续脉冲PWM生成）
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.JYUSB61902COTask.Clock">
+            <summary>
+            CO时钟设置，计数的时钟边沿，可选择项为Rising和Falling和时钟源,可选项为Internal和External， 默认为Rising和Internal。
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.JYUSB61902COTask.Gate">
+            <summary>
+            Gate设置参数（内部或者外部）
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.JYUSB61902COTask.Pulse">
+            <summary>
+            脉冲参数设置
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.JYUSB61902COTask.IdleState">
+            <summary>
+            闲置状态(输出开始前和输出完成后输出端的电平状态)
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYUSB61902COTask._devHandle">
+            <summary>
+            操作硬件的对象
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYUSB61902COTask._channelID">
+            <summary>
+            通道ID
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.JYUSB61902COTask._coStarted">
+            <summary>
+            CO是否已经启动
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902COTask.ApplyParam">
+            <summary>
+            应用参数配置（PWM生成时可以同时修改频率和占空比）
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902COTask.Start">
+            <summary>
+            启动CO任务
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902COTask.Stop">
+            <summary>
+            停止Count Out 任务
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902COTask.ConfigCO(System.Boolean)">
+            <summary>
+            配置Counter Out
+            </summary>
+        </member>
+        <member name="T:JYUSB61902.COSignalLevel">
+            <summary>
+            信号电平枚举，可选择项为low和High
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.COSignalLevel.Low">
+            <summary>
+            低电平
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.COSignalLevel.High">
+            <summary>
+            高电平
+            </summary>
+        </member>
+        <member name="T:JYUSB61902.COPolarity">
+            <summary>
+            极性设置枚举，可选择项为LowActive和HighActive
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.COPolarity.LowActive">
+            <summary>
+            低有效
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.COPolarity.HighActive">
+            <summary>
+            高有效
+            </summary>
+        </member>
+        <member name="T:JYUSB61902.COMode">
+            <summary>
+            应用类型枚举，有8种模式，可选项为 SingleGatedPulseGen(Gate使能单脉冲生成），SingleTrigPulseGen（触发单脉冲生成）， RetrigSinglePulseGen（重触发单脉冲生成）
+             SingleTrigContPulseGen（触发单脉冲生成），ContGatedPulseGen（Gate使能连续脉冲生成），MultipleGatedPulseGen（多门使能脉冲生成）。SingleTrigContPulseGenPWM（触发连续脉冲PWM连续脉冲生成），
+             ContGatedPulseGenPWM（门使能连续脉冲PWM生成）
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.COMode.SingleGatedPulseGen">
+            <summary>
+            Gate使能单脉冲生成
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.COMode.SingleTrigPulseGen">
+            <summary>
+            触发单脉冲生成
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.COMode.RetrigSinglePulseGen">
+            <summary>
+            可重触发单脉冲生成
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.COMode.SingleTrigContPulseGen">
+            <summary>
+            触发连续脉冲生成
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.COMode.ContGatedPulseGen">
+            <summary>
+            Gate使能连续脉冲生成
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.COMode.SingleTrigContPulseGenPWM">
+            <summary>
+            触发连续脉冲PWM生成
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.COMode.ContGatedPulseGenPWM">
+            <summary>
+            门使能连续脉冲PWM生成
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.COMode.MultipleGatedPulseGen">
+            <summary>
+            多门使能脉冲生成
+            </summary>
+        </member>
+        <member name="T:JYUSB61902.COClockSource">
+            <summary>
+            CO的时钟源枚举，（内部或者外部）
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.COClockSource.Internal">
+            <summary>
+            内部时钟
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.COClockSource.External">
+            <summary>
+            外部时钟
+            </summary>
+        </member>
+        <member name="T:JYUSB61902.COGateSource">
+            <summary>
+            CO的Gate源枚举，（内部或者外部）
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.COGateSource.Internal">
+            <summary>
+            软件指定
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.COGateSource.External">
+            <summary>
+            外部Gate引脚
+            </summary>
+        </member>
+        <member name="T:JYUSB61902.COSignalEdge">
+            <summary>
+            信号沿类型，可选择项为Rising和Falling
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.COSignalEdge.Rising">
+            <summary>
+            上升沿
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.COSignalEdge.Falling">
+            <summary>
+            下降沿
+            </summary>
+        </member>
+        <member name="T:JYUSB61902.COClock">
+            <summary>
+            CO时钟设置
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.COClock.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.COClock.Edge">
+            <summary>
+            计数器的时钟边沿选择
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.COClock.Source">
+            <summary>
+            计数或测量的时钟源选择
+            </summary>
+        </member>
+        <member name="T:JYUSB61902.COGate">
+            <summary>
+            CO时钟设置
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.COGate.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.COGate.Polarity">
+            <summary>
+            计数器Gate有效电平,可选择项为LowActive和HighActive
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.COGate.Source">
+            <summary>
+            计数器Gate源选择,可选择项为Internal和External
+            </summary>
+        </member>
+        <member name="T:JYUSB61902.DutyCycleFrequency">
+            <summary>
+            按占空比和频率设置
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.DutyCycleFrequency.#ctor">
+            <summary>
+            默认构造函数
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.DutyCycleFrequency.DutyCycle">
+            <summary>
+            输出脉冲的占空比
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.DutyCycleFrequency.Frequency">
+            <summary>
+            输出脉冲的频率
+            </summary>
+        </member>
+        <member name="T:JYUSB61902.Time">
+            <summary>
+            按高低电平时间设置
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.Time.#ctor">
+            <summary>
+            默认构造函数
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.Time.High">
+            <summary>
+            脉冲高电平时间
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.Time.Low">
+            <summary>
+            脉冲低电平时间
+            </summary>
+        </member>
+        <member name="T:JYUSB61902.Tick">
+            <summary>
+            按高低电平Tick设置
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.Tick.#ctor">
+            <summary>
+            默认构造函数
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.Tick.High">
+            <summary>
+            脉冲高电平Tick 
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.Tick.Low">
+            <summary>
+            脉冲低电平Tick 
+            </summary>
+        </member>
+        <member name="T:JYUSB61902.COPulse">
+            <summary>
+            CO脉冲的参数设置
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.COPulse.#ctor(JYUSB61902.COPulseType,System.Double,System.UInt32)">
+            <summary>
+            默认构造函数，做一些初始化操作
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.COPulse.InitialDelay">
+            <summary>
+            输出脉冲的初始延迟
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.COPulse.Type">
+            <summary>
+            是否使用频率和占空比指定脉冲参数
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.COPulse.DutyCycleFrequency">
+            <summary>
+            占空比和频率
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.COPulse.Time">
+            <summary>
+            高低电平时间
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.COPulse.Tick">
+            <summary>
+            高低电平Tick数
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.COPulse.Count">
+            <summary>
+            输出脉冲的个数（仅针对MultipleGatedPulseGen模式）
+            </summary>
+        </member>
+        <member name="T:JYUSB61902.COPulseType">
+            <summary>
+            CO输出脉冲参数的设置类型
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.COPulseType.DutyCycleFrequency">
+            <summary>
+            用占空比和频率设置
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.COPulseType.HighLowTime">
+            <summary>
+            用高电平时间和低电平时间设置
+            </summary>
+        </member>
+        <member name="F:JYUSB61902.COPulseType.HighLowTick">
+            <summary>
+            用高电平和低电平的Tick数设置
+            </summary>
+        </member>
+        <member name="T:JYUSB61902.JYUSB61902DITask">
+            <summary>
+            DIO操作任务类
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902DITask.#ctor(System.Int32)">
+            <summary>
+            创建DI任务
+            </summary>
+            <param name="boardNum">板卡编号</param>
+        </member>
+        <member name="F:JYUSB61902.JYUSB61902DITask._deviceHandle">
+            <summary>
+            操作硬件的对象
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.JYUSB61902DITask.Channels">
+            <summary>
+            通道列表，GPIO-GPI7，共7个
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902DITask.AddChannel(System.Int32[])">
+            <summary>
+            添加通道，位号如果是null或Length为0时添加所有通道
+            </summary>
+            <param name="lineNum">位号，从0开始，（0-7）共8位</param>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902DITask.RemoveChannel(System.Int32[])">
+            <summary>
+            删除指定位号的通道。
+            </summary>
+            <param name="lineNum">位号,如果是null或在Length为0，则删除全部位</param>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902DITask.ReadSinglePoint(System.Boolean[]@)">
+            <summary>
+            每通道读取最新的一个点，非缓冲式读取。
+            </summary>
+            <param name="buf">用户缓冲区数组，为bool类型</param>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902DITask.ReserveCfgDI">
+            <summary>
+            标志占用
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902DITask.UnReserveDI">
+            <summary>
+            解除占用
+            </summary>
+        </member>
+        <member name="T:JYUSB61902.DIChannel">
+            <summary>
+            DI通道参数类，GPIO-GPI7，共7个
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.DIChannel.PortNum">
+            <summary>
+            端口号，从0开始
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.DIChannel.LineNum">
+            <summary>
+            端口中的位号，从0开始。提供小于0的值，将获得值0.
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.DIChannel.#ctor(System.Int32,System.Int32[])">
+            <summary>
+            构造函数
+            </summary>
+            <param name="portNum">端口号</param>
+            <param name="lineNum">端口中的位号，用数组表示</param>
+        </member>
+        <member name="T:JYUSB61902.JYUSB61902DOTask">
+            <summary>
+            DIO操作任务类
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902DOTask.#ctor(System.Int32)">
+            <summary>
+            创建DO任务
+            </summary>
+            <param name="boardNum">板卡编号</param>
+        </member>
+        <member name="F:JYUSB61902.JYUSB61902DOTask._deviceHandle">
+            <summary>
+            操作硬件的对象
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.JYUSB61902DOTask.Channels">
+            <summary>
+            初始化通道，GPO0-GPO3共4个
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902DOTask.AddChannel(System.Int32[])">
+            <summary>
+            添加通道，位号为null或数组元素个数为0时添加所有通道
+            </summary>
+            <param name="lineNum">位号,从0开始.元素个数为0就添加所有的线</param>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902DOTask.RemoveChannel(System.Int32[])">
+            <summary>
+            删除指定位号的通道
+            </summary>
+            <param name="lineNum">位号,元素个数为0就删除所有的通道</param>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902DOTask.WriteSinglePoint(System.Boolean[])">
+            <summary>
+            每通道更新一个点, 非缓冲式更新
+            </summary>
+            <param name="buf">写入数据的缓存</param>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902DOTask.ReserveCfgDO">
+            <summary>
+            标志DO占用
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.JYUSB61902DOTask.UnReserveDO">
+            <summary>
+            解除DO占用标志
+            </summary>
+        </member>
+        <member name="T:JYUSB61902.DOChannel">
+            <summary>
+            DO通道参数类，GPO0-GPO3共4个
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.DOChannel.PortNum">
+            <summary>
+            端口号，从0开始
+            </summary>
+        </member>
+        <member name="P:JYUSB61902.DOChannel.LineNum">
+            <summary>
+            端口中的位号，从0开始。提供小于0的值，将获得值0.
+            </summary>
+        </member>
+        <member name="M:JYUSB61902.DOChannel.#ctor(System.Int32,System.Int32[])">
+            <summary>
+            构造函数
+            </summary>
+            <param name="portNum">端口号</param>
+            <param name="lineNum">端口中的位号，用数组表示</param>
+        </member>
+    </members>
+</doc>

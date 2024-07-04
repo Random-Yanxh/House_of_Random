@@ -1,0 +1,3 @@
+AC Meter.exe 是可执行文件。
+在安装底层运行环境FirmDriveRuntime，采集卡硬件驱动JYUSB-61902，软件库SeesharpTools后，连接采集卡硬件，双击exe文件即可运行。
+查看源代码需安装Visual Studio后，运行.sln文件。
